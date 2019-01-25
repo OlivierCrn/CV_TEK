@@ -6,7 +6,7 @@ print "Liste des candidats: ". PHP_EOL;
 print PHP_EOL;
 foreach($candidats as $key => $informations) 
 {
-    $LastNamesA[$key] = $informations["LastName"];
+    $LastNamesA[$key] = $informations["LASTNAME"];
 }
 array_multisort($LastNamesA, SORT_ASC, $candidats);
 affichage($candidats);
@@ -54,7 +54,7 @@ foreach($candidats as $key => $informations)
     {
         $informations["LastName"] = " ";
     }*/
-    $LastNamesD[$key] = $informations["LastName"];
+    $LastNamesD[$key] = $informations["LASTNAME"];
 }
 array_multisort($LastNamesD, SORT_DESC, $candidats);
 affichage($candidats);
@@ -63,11 +63,11 @@ villeA:
 //Sort Town A->Z
 foreach($candidats as $key => $informations) 
 { 
-    if ($informations["Town"] == $nul) 
+    if ($informations["TOWN"] == $nul) 
     {
-        $informations["Town"] = "zzz";
+        $informations["TOWN"] = "zzz";
     }
-    $TownsA[$key] = $informations["Town"];
+    $TownsA[$key] = $informations["TOWN"];
     
 }
 array_multisort($TownsA, SORT_ASC, $candidats);
@@ -77,11 +77,11 @@ villeD:
 //Sort Town Z->A
 foreach($candidats as $key => $informations) 
 {
-    if ($informations["Town"] == $nul) 
+    if ($informations["TOWN"] == $nul) 
     {
-        $informations["Town"] = " ";
+        $informations["TOWN"] = " ";
     }
-    $TownsD[$key] = $informations["Town"];
+    $TownsD[$key] = $informations["TOWN"];
 }
 array_multisort($TownsD, SORT_DESC, $candidats);
 affichage($candidats);
@@ -90,7 +90,7 @@ ageA:
 //Sort by ascending age
 foreach($candidats as $key => $informations) 
 {
-    $agesA[$key] = $informations["Age"];
+    $agesA[$key] = $informations["AGE"];
 }
 array_multisort($agesA, SORT_ASC, $candidats);
 affichage($candidats);
@@ -99,7 +99,7 @@ ageD:
 //Sort by descending age
 foreach($candidats as $key => $informations) 
 {
-    $agesD[$key] = $informations["Age"];
+    $agesD[$key] = $informations["AGE"];
 }
 array_multisort($agesD, SORT_DESC, $candidats);
 affichage($candidats);
@@ -108,7 +108,7 @@ profileA:
 //Sort by ascending profile
 foreach($candidats as $key => $informations) 
 {
-    $profileA[$key] = $informations["Profile"];
+    $profileA[$key] = $informations["PROFILE"];
 }
 array_multisort($profileA, SORT_ASC, $candidats);
 affichage($candidats);
@@ -118,12 +118,13 @@ profileD:
 foreach($candidats as $key => $informations) 
 {
     
-    $profileD[$key] = $informations["Profile"];
+    $profileD[$key] = $informations["PROFILE"];
 }
 array_multisort($profileD, SORT_DESC, $candidats);
 affichage($candidats);
 goto tri;
 retour:
+return;
 }
 
 ?>

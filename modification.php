@@ -1,10 +1,10 @@
 <?php
     function modificationCandidats($candidats)
     {
-        print PHP_EOL;
-        print("Tapez le nom de la personne dont vous voulez modifier le profil: ");
+        $validation = FALSE;
         $search ="";
-        $search= readline();
+        print PHP_EOL;
+        $search= cleanInput(readline("Tapez le nom de la personne dont vous voulez modifier le profil: "));
         foreach($candidats as $key => $value)
         {
             if(in_array($search , $value))
@@ -32,20 +32,19 @@
                     }
                 }
             }
-        } 
-        if(!$validation)
-        {
+            else
+            {
             print PHP_EOL;
             print("Aucune correspondance trouvée..."). PHP_EOL;
             print PHP_EOL;
-            return $candidats;
-        }
+            return;
+            }
+        } 
+
     
         print PHP_EOL;
-        print("Entrez l'ID de la personne que vous souhaitez modifier:") .PHP_EOL;
-        $ID = readline();
-        print("Que voulez-vous modifier? (Entrer une option):") .PHP_EOL;
-        $Askey = readline();
+        $ID = readline("Entrez l'ID de la personne que vous souhaitez modifier:");
+        $Askey = readline("Que voulez-vous modifier? (Entrer une option):" );
         if($Askey == "Skills")
         {
             for($i = 0; $i < count($value1) ; $i++)
@@ -53,16 +52,24 @@
                 print("Compétence N°".$i." ");
                 print($value1[$i]) .PHP_EOL;
             }
-            print("Entrez l'ID de la compétence à éditer:") .PHP_EOL;
-            $IDs = readline();
-    
-            print("Entrez la nouvelle valeur:");
-            $candidats[$ID][$Askey][$IDs] = readline();
+            $IDs = readline("Entrez l'ID de la compétence à éditer:" );
+            $buffer = readline("Entrez la nouvelle valeur:" );
+            while(empty($buffer))
+            {
+                $buffer = readline("Erreur, vous devez obligatoirement saisir une valeur..");
+            }
+            $candidats[$ID][$Askey][$IDs] = $buffer;
         }
         else
         {
-            print("Entrez la nouvelle valeur:");
-            $candidats[$ID][$Askey] = readline();
+            $buffer = "";
+            $buffer = readline("Entrez la nouvelle valeur:");
+                while(empty($buffer))
+                {
+                    $buffer = readline("Erreur, vous devez obligatoirement saisir une valeur..");
+                }
+            $candidats[$ID][$Askey] = $buffer;
+                
         }
     return $candidats;
     }

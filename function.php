@@ -31,7 +31,7 @@ function affichage($candidats)
         print PHP_EOL;
         foreach($value as $key1 => $value1)
         {
-            if($key1 == "Skills")
+            if($key1 == "SKILLS")
                 {
                 print($key1.":") .PHP_EOL;
                 for($i = 0; $i <  count($value1); $i++)
@@ -67,18 +67,18 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
         {
             $temp=array();
             $temps=array();
-            $temp["LastName"] = strtoupper(removeAccents(trim($information[1])));
-            $temp["FirstName"] = strtoupper(removeAccents(trim($information[2])));
-            $temp["Birthdate"] = trim($information[4]);
-            $temp["Age"] = age($information[4]);
-            $temp["Address1"] = strtoupper(removeAccents(trim($information[5])));
-            $temp["Address2"]= strtoupper(removeAccents(trim($information[6])));
-            $temp["Postcode"]=strtoupper(removeAccents(trim($information[7])));
-            $temp["Town"]=strtoupper(removeAccents(trim($information[8])));
-            $temp["Mobile"] = trim($information[9]);
-            $temp["Phone"] =trim($information[10]);
-            $temp["Mail"] = strtoupper(removeAccents(trim($information[11])));
-            $temp["Profile"] = strtoupper(removeAccents(trim($information[12])));
+            $temp["LASTNAME"] = strtoupper(removeAccents(trim($information[1])));
+            $temp["FIRSTNAME"] = strtoupper(removeAccents(trim($information[2])));
+            $temp["BIRTHDATE"] = trim($information[4]);
+            $temp["AGE"] = age($information[4]);
+            $temp["ADRESS1"] = strtoupper(removeAccents(trim($information[5])));
+            $temp["ADRESS2"]= strtoupper(removeAccents(trim($information[6])));
+            $temp["POSTCODE"]=strtoupper(removeAccents(trim($information[7])));
+            $temp["TOWN"]=strtoupper(removeAccents(trim($information[8])));
+            $temp["MOBILE"] = trim($information[9]);
+            $temp["PHONE"] =trim($information[10]);
+            $temp["MAIL"] = strtoupper(removeAccents(trim($information[11])));
+            $temp["PROFILE"] = strtoupper(removeAccents(trim($information[12])));
 			$count_skills=0;
             for($i=0; $i<10; $i++)
             {    
@@ -88,8 +88,8 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
 					$temps[]=strtoupper(removeAccents(trim($information[$i+13])));
 				}
             }
-            $temp["Skills"] = $temps;
-			if ($count_skills>=5 && $temp["LastName"]!=$nul && $temp["FirstName"]!=$nul && $temp["Birthdate"]!=$nul && $temp["Mobile"]!=$nul && $temp["Mail"]!=$nul && $temp["Profile"]!=$nul)
+            $temp["SKILLS"] = $temps;
+			if ($count_skills>=5 && $temp["LASTNAME"]!=$nul && $temp["FIRSTNAME"]!=$nul && $temp["BIRTHDATE"]!=$nul && $temp["MOBILE"]!=$nul && $temp["MAIL"]!=$nul && $temp["PROFILE"]!=$nul)
 			{
             $candidats[] = $temp;
 			}

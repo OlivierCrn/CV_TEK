@@ -11,56 +11,56 @@ print("Code postal: ").PHP_EOL;
 print("Ville: ").PHP_EOL;
 print("Téléphone fixe: ").PHP_EOL;
 print("Téléphone portable: ").PHP_EOL;
-print("Mail: ").PHP_EOL;
+print("MAIL: ").PHP_EOL;
 print("Profil recherché: ").PHP_EOL;
 print("Compétences (de 5 minimum à 10 maximum): ").PHP_EOL;
 print PHP_EOL;
 print PHP_EOL;
 print "Nouveau Candidat" .PHP_EOL;
 print PHP_EOL;
-$informations["LastName"]=readline("Nom: ");
-while (empty($informations["LastName"]))
+$informations["LASTNAME"]=readline("Nom: ");
+while (empty($informations["LASTNAME"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["LastName"]=readline("Nom: ");
+	$informations["LASTNAME"]=readline("Nom: ");
 }	
-$informations["FirstName"]=readline("Prénom: ");
-while (empty($informations["FirstName"]))
+$informations["FIRSTNAME"]=readline("Prénom: ");
+while (empty($informations["FIRSTNAME"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["FirstName"]=readline("Prénom: ");
+	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
-$informations["Birthdate"]=readline("Date de naissance au format dd/mm/yyyy: ");
-while (empty($informations["Birthdate"]))
+$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+while (empty($informations["BIRTHDATE"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["Birthdate"]=readline("Date de naissance au format dd/mm/yyyy: ");
+	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
 }
 print("Âge: ");
-print $informations["Age"]= age ($informations["Birthdate"]);
+print $informations["AGE"]= age ($informations["BIRTHDATE"]);
 print PHP_EOL;
-$informations["Address1"]=readline("Adresse: ");
-$informations["Address2"]= readline("Adresse suite: ");
-$informations["Postcode"]= readline("Code postal: ");
-$informations["Town"]= readline("Ville: ");
-$informations["Phone"]=readline("Téléphone fixe: ");
-$informations["Mobile"]=readline ("Téléphone portable: ");
-while (empty($informations["Mobile"]))
+$informations["ADRESS1"]=readline("Adresse: ");
+$informations["ADRESS2"]= readline("Adresse suite: ");
+$informations["POSTCODE"]= readline("Code postal: ");
+$informations["TOWN"]= readline("Ville: ");
+$informations["PHONE"]=readline("Téléphone fixe: ");
+$informations["MOBILE"]=readline ("Téléphone portable: ");
+while (empty($informations["MOBILE"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["Mobile"]=readline ("Téléphone portable: ");
+	$informations["MOBILE"]=readline ("Téléphone portable: ");
 }
-$informations["Mail"]= readline("Mail: ");
-while (empty($informations["Mail"]))
+$informations["MAIL"]= readline("MAIL: ");
+while (empty($informations["MAIL"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["Mail"]= readline("Mail: ");
+	$informations["MAIL"]= readline("MAIL: ");
 }
-$informations["Profile"]=readline ("Profil recherché: ");
-while (empty($informations["Profile"]))
+$informations["PROFILE"]=readline ("Profil recherché: ");
+while (empty($informations["PROFILE"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["Profile"]=readline ("Profil recherché: ");
+	$informations["PROFILE"]=readline ("Profil recherché: ");
 }	
 print("Compétences (de 5 minimum à 10 maximum): ") .PHP_EOL;
 for($i=0; $i < 10; $i++)
@@ -83,7 +83,7 @@ for($i=0; $i < 10; $i++)
         }
     $Skills[$i] = $buffer;
 }
-$informations["Skills"]=$Skills;
+$informations["SKILLS"]=$Skills;
 return $informations;
 }
 ?>
