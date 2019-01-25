@@ -2,6 +2,7 @@
 
 function add()
 {
+$buffer="";
 print ("Nom: ").PHP_EOL;
 print("Prénom: ").PHP_EOL;
 print("Date de naissance: ").PHP_EOL;
@@ -31,11 +32,18 @@ while (empty($informations["FIRSTNAME"]))
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
 $informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
-while (empty($informations["BIRTHDATE"]))
+while (empty( $informations["BIRTHDATE"] ))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+    $informations["BIRTHDATE"]  = readline("Date de naissance au format dd/mm/yyyy: ");
 }
+
+/*while(!preg_match(d{1,2}/\d{1,2}/\d{4}$ , $value ))
+{
+    print("Format de date non valide");
+    $informations["BIRTHDATE"]  = readline("Date de naissance au format dd/mm/yyyy: ");
+
+} */
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
 print PHP_EOL;

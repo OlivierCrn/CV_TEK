@@ -1,7 +1,7 @@
 <?php
     function modificationCandidats($candidats)
     {
-        search($candidats); 
+        LastName($candidats);
         print PHP_EOL;
         $ID = readline("Entrez l'ID de la personne que vous souhaitez modifier:");
         $Askey = cleanInput(readline("Que voulez-vous modifier? (Entrer une option):" ));

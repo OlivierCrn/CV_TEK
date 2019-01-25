@@ -1,9 +1,5 @@
 <?php
 
-function search($candidats)
-
-{
-
 function LastName($candidats) 
 {
     $saisie=cleanInput(readline("Nom : "));
@@ -12,13 +8,19 @@ function LastName($candidats)
 
 for ($i=1;$i<=count($candidats);$i++) 
     {
-    if ($saisie==$candidats[$i]["LastName"]) 
+    if ($saisie==$candidats[$i]["LASTNAME"]) 
         {
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
+    else
+
+    {
+        print("fckof");
     }
-affichage($resultats);    
+    }
+affichage($resultats);  
+return;  
 }
 
 
@@ -30,7 +32,7 @@ function Ages($candidats)
 
 for ($i=1; $i<=count($candidats); $i++) 
     {
-    if ($saisie==$candidats[$i]["Age"]) 
+    if ($saisie==$candidats[$i]["AGE"]) 
         {
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
@@ -46,7 +48,7 @@ function Town($candidats)
     $compt_resultats=1;
 for ($i=1; $i<=count($candidats); $i++) 
     {
-    if($saisie==$candidats[$i]["Town"]) 
+    if($saisie==$candidats[$i]["TOWN"]) 
         {
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
@@ -63,7 +65,7 @@ function Skills($candidiats)
     $compt_resultats=1;
 for ($i=1; $i<=count($candidats); $i++) 
     {
-    if ($saisie==$candidats[$i]["Skills"]) 
+    if ($saisie==$candidats[$i]["SKILLS"]) 
         {
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
@@ -72,9 +74,10 @@ for ($i=1; $i<=count($candidats); $i++)
 affichage($resultats);    
 }
 
+function search($candidats)
 
-
-//affichage($candidats);
+{
+    //affichage($candidats);
 print "Que voulez vous chercher?". PHP_EOL;
 print PHP_EOL;
 print "1 - Rechercher par nom". PHP_EOL;
@@ -88,18 +91,25 @@ $REsearch = readline("Votre choix : ");
 switch ($REsearch) {
     case "1":
     LastName($candidats);
+    break;
 
     case "2": 
     Ages($candidats);
+    break;
 
     case "3":
     Town($candidats);
+    break;
 
     case "4":
     Skills($candidats);
+    break;
 
     case "5":
     return;
+    }
 }
-}
+
+
+
 ?>
