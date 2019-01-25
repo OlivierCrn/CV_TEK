@@ -45,11 +45,20 @@ $informations["POSTCODE"]= readline("Code postal: ");
 $informations["TOWN"]= readline("Ville: ");
 $informations["PHONE"]=readline("Téléphone fixe: ");
 $informations["MOBILE"]=readline ("Téléphone portable: ");
-while (empty($informations["MOBILE"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["MOBILE"]=readline ("Téléphone portable: ");
-}
+/* strlen () => compte le nombre de caractères d'une chaine*/
+while(!preg_match ("#^0\d([-. ]?\d{2,3}){3,4}$#",$informations["MOBILE"]))
+	{	
+	if (empty($informations["MOBILE"]))
+		{
+		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
+		$informations["MOBILE"]=readline ("Téléphone portable: ");
+		}
+	else
+		{		
+		print " CE NUMÉRO N'EST PAS VALIDE.". PHP_EOL;
+		$informations["MOBILE"]=readline ("Téléphone portable: ");
+		}
+	}
 $informations["MAIL"]= readline("MAIL: ");
 while (empty($informations["MAIL"]))
 {
