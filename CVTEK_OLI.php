@@ -3,6 +3,8 @@
 require_once('function.php');
 require_once('list.php');
 require_once('search.php');
+require_once('add.php');
+require_once('modification.php');
 // Variables
 $ID = 0;
 $IDs = 0;
@@ -31,9 +33,9 @@ switch ($menu) {
     case "1":
     li($candidats);
     case "2":
-    goto ad;
+    $candidats[]=add($informations);
     case "3":
-    goto mo;
+    modificationCandidats($candidats);
     case "4":   
     search($candidats);
     case "5":
@@ -46,106 +48,8 @@ switch ($menu) {
 
 //Ajout d'un nouveau candidat:
 ad:
-print ("Nom: ").PHP_EOL;
-print("Prénom: ").PHP_EOL;
-print("Date de naissance: ").PHP_EOL;
-print("Adresse: ").PHP_EOL;
-print("Adresse suite: ").PHP_EOL;
-print("Code postal: ").PHP_EOL;
-print("Ville: ").PHP_EOL;
-print("Téléphone fixe: ").PHP_EOL;
-print("Téléphone portable: ").PHP_EOL;
-print("Mail: ").PHP_EOL;
-print("Profil recherché: ").PHP_EOL;
-print("Compétences (de 5 minimum à 10 maximum): ").PHP_EOL;
-print PHP_EOL;
-print PHP_EOL;
-print "Nouveau Candidat" .PHP_EOL;
-print PHP_EOL;
-print("Nom: ");
-$informations["LastName"]=readline();
-while (empty($informations["LastName"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Nom: ");
-	$informations["LastName"]=readline();
-}	
-print("Prénom: ");
-$informations["FirstName"]=readline();
-while (empty($informations["FirstName"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Prénom: ");
-	$informations["FirstName"]=readline();
-}
-print("Date de naissance au format dd-mm-yyyy: ");
-$informations["Birthdate"]=readline();
-while (empty($informations["Birthdate"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Date de naissance au format dd-mm-yyyy: ");
-	$informations["Birthdate"]=readline();
-}
-print("Âge: ");
-print $informations["Age"]= age ($informations["Birthdate"]);
-print PHP_EOL;
-print("Adresse: ");
-$informations["Address1"]=readline();
-print("Adresse suite: ");
-$informations["Address2"]= readline();
-print("Code postal: ");
-$informations["Postcode"]= readline();
-print("Ville: ");
-$informations["Town"]= readline();
-print("Téléphone fixe: ");
-$informations["Phone"]=readline();
-print("Téléphone portable: ");
-$informations["Mobile"]=readline ();
-while (empty($informations["Mobile"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Téléphone portable: ");
-	$informations["Mobile"]=readline ();
-}
-print("Mail: ");
-$informations["Mail"]= readline();
-while (empty($informations["Mail"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Mail: ");
-	$informations["Mail"]= readline();
-}
-print("Profil recherché: ");
-$informations["Profile"]=readline ();
-while (empty($informations["Profile"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Profil recherché: ");
-	$informations["Profile"]=readline ();
-}	
-print("Compétences (de 5 minimum à 10 maximum): ") .PHP_EOL;
-for($i=0; $i < 10; $i++)
-{
-    $buffer="";
-     $NumComp = $i+1;
-    print("Compétence n°".$NumComp) .PHP_EOL;
-    $buffer = readline();
-        if($i < 5 && empty($buffer))
-        {
-            while(empty($buffer))
-            {
-                print("Il y a moins de 5 compétences, merci de rentrer 5 compétences minimum.") .PHP_EOL;
-                $buffer = readline();
-            }
-        }
-        if($i > 5 && empty($buffer))
-        {
-        break;
-        }
-    $Skills[$i] = $buffer;
-}
-$informations["Skills"]=$Skills;
-$candidats[]=($informations);
+
+$candidats[]=add($informations);
 
 print PHP_EOL;
 print "Que voulez-vous faire?". PHP_EOL;
@@ -173,73 +77,8 @@ if ($saisie!=1) //Si pas de fontion de conversion, mettre la valeur entrez guill
 */
 
 //Modification du fichier candidat:
-//Modification du fichier candidat:
     mo:
-    print PHP_EOL;
-    print("Tapez le nom de la personne dont vous voulez modifier le profil: ");
-    $search ="";
-    $search= readline();
-    foreach($candidats as $key => $value)
-    {
-            if(in_array($search , $value))
-            {
-                $validation = true;
-                print PHP_EOL;
-                print("~~ Une ou plusieurs correspondance trouvée ~~") .PHP_EOL;
-                print PHP_EOL;
-                print("ID:" . $key). PHP_EOL;
-                foreach($value as $key1 => $value1)
-                {
-                    if($key1 == "Skills")
-                    {
-                        print("Skills: "). PHP_EOL;
-                        for($i = 0; $i < count($value1); $i++)
-                        {
-                            print($value1[$i]." | ");
-                        }
-                        print PHP_EOL;
-                    }
-                    else
-                    {
-                        print($key1.": ");
-                        print($value1). PHP_EOL;
-                    }
-                }
-            }
-    } 
-    if(!$validation)
-    {
-        print PHP_EOL;
-        print("Aucune correspondance trouvée..."). PHP_EOL;
-        print PHP_EOL;
-        goto mo;
-    }
-    
-    print PHP_EOL;
-    print("Entrez l'ID de la personne que vous souhaitez modifier:") .PHP_EOL;
-    $ID = readline();
-    print("Que voulez-vous modifier? (Entrer une option):") .PHP_EOL;
-    $Askey = readline();
-    if($Askey == "Skills")
-    {
-        for($i = 0; $i < count($value1) ; $i++)
-            {
-                print("Compétence N°".$i." ");
-                print($value1[$i]) .PHP_EOL;
-            }
-            print("Entrez l'ID de la compétence à éditer:") .PHP_EOL;
-            $IDs = readline();
-    
-            print("Entrez la nouvelle valeur:");
-            $candidats[$ID][$Askey][$IDs] = readline();
-    }
-    else
-    {
-        print("Entrez la nouvelle valeur:");
-        $candidats[$ID][$Askey] = readline();
-    }
-
-
+    modificationCandidats($candidats);
 //Recherche de candidat  selon variable:
 se:
 $temp= 0;
