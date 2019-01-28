@@ -31,16 +31,21 @@ while (empty($informations["FIRSTNAME"]))
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
 $informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
-while (!preg_match("#^(0?[1-9]|[0-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0-2])[[\/.-_ ](19[0-9][0-9]|20[01][0-9])$#", $informations["BIRTHDATE"]))
-	if (empty($informations["BIRTHDATE"]))
+$DOB = $informations["BIRTHDATE"];
+$today = date("d-m-Y");
+while (!preg_match("#^(0?[1-9]|[0-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0-2])[[\/.-_ ](19[0-9][0-9]|[2-9]\d{3})$#", $informations["BIRTHDATE"]) || strtotime($DOB) >= strtotime($today))
 	{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
-	}
-	else
-	{
-	print " ERREUR - ENTREE ERONNEE ". PHP_EOL;
-    $informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");	
+		if (empty($informations["BIRTHDATE"]))
+		{
+		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
+		$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+		}
+		else
+		{
+		print " VOUS ÊTES BIEN JEUNE OU ALORS C'EST UNE ERREUR - ENTREE ERONNEE ". PHP_EOL;
+		$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+		$DOB = $informations["BIRTHDATE"];		
+		}
 	}
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
