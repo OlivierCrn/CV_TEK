@@ -1,21 +1,20 @@
 <?php
 
-function LastName($candidats) 
+function LastName($candidats) // Function which will search candidats depending of their name. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline("Nom : "));
     $resultats=array();
     $compt_resultats=1;
-
-for ($i=1;$i<=count($candidats);$i++) 
-    {
-    if ($saisie==$candidats[$i]["LASTNAME"]) 
+    for ($i=1;$i<=count($candidats);$i++) 
         {
-        $validation = TRUE;
-        $resultats[$compt_resultats]=$candidats[$i];
-        $compt_resultats++;
+        if ($saisie==$candidats[$i]["LASTNAME"]) 
+            {
+                $validation = TRUE;
+                $resultats[$compt_resultats]=$candidats[$i];
+                $compt_resultats++;
+            }
         }
-    }
     if($validation)
     {
         affichage($resultats);  
@@ -25,11 +24,11 @@ for ($i=1;$i<=count($candidats);$i++)
     {
         print("Pas de résultat...").PHP_EOL;
         search($candidats);
-    }
+    }   
 
 }
 
-function LastNameSearch($candidats)
+function LastNameSearch($candidats) // Function only used by "modification.php"
 {
     $validation = FALSE;
     $saisie=cleanInput(readline("Nom : "));
@@ -56,21 +55,20 @@ function LastNameSearch($candidats)
 }
 
 
-function Ages($candidats)
+function Ages($candidats)   // Function which will search candidats depending of their age. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline("Age : "));
     $resultats=array();
     $compt_resultats=1;
-
-for ($i=1; $i<=count($candidats); $i++) 
+    for ($i=1; $i<=count($candidats); $i++) 
     {
-    if ($saisie==$candidats[$i]["AGE"]) 
-        {
-        $validation = TRUE;
-        $resultats[$compt_resultats]=$candidats[$i];
-        $compt_resultats++;
-        }
+        if ($saisie==$candidats[$i]["AGE"]) 
+            {
+            $validation = TRUE;
+            $resultats[$compt_resultats]=$candidats[$i];
+            $compt_resultats++;
+            }
     }
     if($validation)
     {
@@ -84,20 +82,20 @@ for ($i=1; $i<=count($candidats); $i++)
     }
 }
 
-function Town($candidats) 
+function Town($candidats)   // Function which will search candidats depending of their town. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline("Ville : "));
     $resultats=array();
     $compt_resultats=1;
-for ($i=1; $i<=count($candidats); $i++) 
+    for ($i=1; $i<=count($candidats); $i++) 
     {
-    if($saisie==$candidats[$i]["TOWN"]) 
-        {
-        $validation = TRUE;
-        $resultats[$compt_resultats]=$candidats[$i];
-        $compt_resultats++;
-        }
+        if($saisie==$candidats[$i]["TOWN"]) 
+            {
+            $validation = TRUE;
+            $resultats[$compt_resultats]=$candidats[$i];
+            $compt_resultats++;
+            }
     }
     if($validation)
     {
@@ -112,21 +110,21 @@ for ($i=1; $i<=count($candidats); $i++)
 }
 
 
-function Skills($candidats) 
+function Skills($candidats)     // Function which will search candidats depending of their skills. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline("Competences : "));
     $resultats=array();
     $compt_resultats=1;
-for ($i=1; $i<=count($candidats); $i++) 
+    for ($i=1; $i<=count($candidats); $i++) 
     {
         $compt = 0;
-    if ($saisie==$candidats[$i]["SKILLS"][$compt]) 
-        {
-        $validation = TRUE;
-        $resultats[$compt_resultats]=$candidats[$i];
-        $compt_resultats++;
-        }
+        if ($saisie==$candidats[$i]["SKILLS"][$compt]) 
+            {
+            $validation = TRUE;
+            $resultats[$compt_resultats]=$candidats[$i];
+            $compt_resultats++;
+            }
     }
     if($validation)
     {
@@ -143,7 +141,7 @@ for ($i=1; $i<=count($candidats); $i++)
 function search($candidats)
 
 {
-    //affichage($candidats);
+// Display the menu for searching
 print "Quel critère de recherche voulez-vous utiliser ?". PHP_EOL;
 print PHP_EOL;
 print "1 - Rechercher par nom". PHP_EOL;
@@ -152,9 +150,9 @@ print "3 - Rechercher par Ville".PHP_EOL;
 print "4 - Rechercher par Competences". PHP_EOL;
 print "5 - Retour au menu principal". PHP_EOL;
 print PHP_EOL;
-$REsearch = readline("Votre choix : ");
+$Research = readline("Votre choix : ");
 
-switch ($REsearch) {
+switch ($Research) {
     case "1":
     LastName($candidats);
     break;
