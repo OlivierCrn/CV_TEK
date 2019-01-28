@@ -10,7 +10,7 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($LastNamesA, SORT_ASC, $candidats);
 affichage($candidats);
-tri:
+sort:
 print "De quelle facon voulez vous trier la liste?". PHP_EOL;
 print PHP_EOL;
 print PHP_EOL;
@@ -27,26 +27,26 @@ $choices= readline("Votre choix: ");
 print PHP_EOL;
 switch ($choices) {
     case "1":
-    goto nomD;
+    goto nameD;
     case "2":
-    goto villeA;
+    goto townU;
     case "3":
-    goto villeD;
+    goto townD;
     case "4":
-    goto ageA;
+    goto ageU;
     case "5":
     goto ageD;
     case "6":
-    goto profileA;
+    goto profileU;
     case "7":
     goto profileD;
     case "8":
-    goto retour;
+    goto back;
     default:
     print "Votre choix: ".PHP_EOL;
     print PHP_EOL;
 }
-nomD:
+nameD:
 //Sort Last Names Z->A
 foreach($candidats as $key => $informations) 
 {
@@ -58,8 +58,8 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($LastNamesD, SORT_DESC, $candidats);
 affichage($candidats);
-goto tri;
-villeA:
+goto sort;
+townU:
 //Sort Town A->Z
 foreach($candidats as $key => $informations) 
 { 
@@ -72,8 +72,8 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($TownsA, SORT_ASC, $candidats);
 affichage($candidats);
-goto tri;
-villeD:
+goto sort;
+townD:
 //Sort Town Z->A
 foreach($candidats as $key => $informations) 
 {
@@ -85,8 +85,8 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($TownsD, SORT_DESC, $candidats);
 affichage($candidats);
-goto tri;
-ageA:
+goto sort;
+ageU:
 //Sort by ascending age
 foreach($candidats as $key => $informations) 
 {
@@ -94,7 +94,7 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($agesA, SORT_ASC, $candidats);
 affichage($candidats);
-goto tri;
+goto sort;
 ageD:
 //Sort by descending age
 foreach($candidats as $key => $informations) 
@@ -103,27 +103,26 @@ foreach($candidats as $key => $informations)
 }
 array_multisort($agesD, SORT_DESC, $candidats);
 affichage($candidats);
-goto tri;
-profileA:
+goto sort;
+profileU:
 //Sort by ascending profile
 foreach($candidats as $key => $informations) 
 {
-    $profileA[$key] = $informations["PROFILE"];
+    $profileU[$key] = $informations["PROFILE"];
 }
-array_multisort($profileA, SORT_ASC, $candidats);
+array_multisort($profileU, SORT_ASC, $candidats);
 affichage($candidats);
-goto tri;
+goto sort;
 profileD:
 //Sort by descending profile
 foreach($candidats as $key => $informations) 
 {
-    
     $profileD[$key] = $informations["PROFILE"];
 }
 array_multisort($profileD, SORT_DESC, $candidats);
 affichage($candidats);
-goto tri;
-retour:
+goto sort;
+back:
 return;
 }
 
