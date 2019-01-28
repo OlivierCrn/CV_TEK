@@ -1,6 +1,8 @@
 <?php
 
 function add()
+
+/* Display */
 {
 print ("Nom: ").PHP_EOL;
 print("Prénom: ").PHP_EOL;
@@ -18,25 +20,31 @@ print PHP_EOL;
 print PHP_EOL;
 print "Nouveau Candidat" .PHP_EOL;
 print PHP_EOL;
+
+/* Filling up informations for a new candidate */
 $informations["LASTNAME"]=readline("Nom: ");
 while (empty($informations["LASTNAME"]))
 {
+	/*MANDATORY INFORMATION*/
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 	$informations["LASTNAME"]=readline("Nom: ");
 }	
 $informations["FIRSTNAME"]=readline("Prénom: ");
 while (empty($informations["FIRSTNAME"]))
 {
+	/*MANDATORY INFORMATION*/
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
 $informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+/* Verification for Birthdate, valid format entry and date entry */
 $DOB = $informations["BIRTHDATE"];
 $today = date("d-m-Y");
 while (!preg_match("#^(0?[1-9]|[0-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0-2])[[\/.-_ ](19[0-9][0-9]|[2-9]\d{3})$#", $informations["BIRTHDATE"]) || strtotime($DOB) >= strtotime($today))
 	{
 		if (empty($informations["BIRTHDATE"]))
 		{
+		/*MANDATORY INFORMATION*/
 		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 		$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
 		}
@@ -46,7 +54,7 @@ while (!preg_match("#^(0?[1-9]|[0-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0
 		$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
 		$DOB = $informations["BIRTHDATE"];		
 		}
-	}
+	}/**/
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
 print PHP_EOL;
@@ -56,12 +64,13 @@ $informations["POSTCODE"]= readline("Code postal: ");
 $informations["TOWN"]= readline("Ville: ");
 $informations["PHONE"]=readline("Téléphone fixe: ");
 $informations["MOBILE"]=readline ("Téléphone portable: ");
-/* strlen () => compte le nombre de caractères d'une chaine*/
+/* Verification for Mobile phone number, valid format entry */
 /*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) && !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
 while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !preg_match("#^0033[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
 	{	
 	if (empty($informations["MOBILE"]))
 		{
+		/*MANDATORY INFORMATION*/
 		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 		$informations["MOBILE"]=readline ("Téléphone portable: ");
 		}
@@ -72,10 +81,12 @@ while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !pre
 		}
 	}
 $informations["MAIL"]= readline("Mail: ");
+/* Verification for Mail adress, valid format entry */
 while(!preg_match ("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$informations["MAIL"]))
 	{
 	if (empty($informations["MAIL"]))
 		{
+		/*MANDATORY INFORMATION*/
 		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 		$informations["MAIL"]= readline("Mail: ");
 		}
@@ -88,6 +99,7 @@ while(!preg_match ("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$informations[
 $informations["PROFILE"]=readline ("Profil recherché: ");
 while (empty($informations["PROFILE"]))
 {
+	/*MANDATORY INFORMATION*/
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 	$informations["PROFILE"]=readline ("Profil recherché: ");
 }	
@@ -102,6 +114,7 @@ for($i=0; $i < 10; $i++)
         {
             while(empty($buffer))
             {
+				/*MANDATORY INFORMATION, fill up 5 min.*/
                 print("Il y a moins de 5 compétences, merci de rentrer 5 compétences MINIMUM.") .PHP_EOL;
                 $buffer = readline();
             }
