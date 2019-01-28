@@ -13,14 +13,9 @@ for ($i=1;$i<=count($candidats);$i++)
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
-    else
-
-    {
-        print("fckof");
-    }
     }
 affichage($resultats);  
-return;  
+search($candidats);
 }
 
 
@@ -39,6 +34,7 @@ for ($i=1; $i<=count($candidats); $i++)
         }
     }
 affichage($resultats);
+search($candidats);
 }
 
 function Town($candidats) 
@@ -54,7 +50,8 @@ for ($i=1; $i<=count($candidats); $i++)
         $compt_resultats++;
         }
     }
-affichage($resultats);   
+affichage($resultats);  
+search($candidats); 
 }
 
 
@@ -71,7 +68,8 @@ for ($i=1; $i<=count($candidats); $i++)
         $compt_resultats++;
         }
     }
-affichage($resultats);    
+affichage($resultats);  
+search($candidats);  
 }
 
 function search($candidats)
