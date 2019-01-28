@@ -17,52 +17,59 @@ $candidats=csv_to_array('hrdata.csv');
 $compteur= 0;
 //Start
 //General menu:
-menu:
-print PHP_EOL;
-print("Menu, ou voulez vous aller? "). PHP_EOL;
-print PHP_EOL;
-print "1 - Liste des candidats ". PHP_EOL;
-print "2 - Ajout de candidat ". PHP_EOL;
-print "3 - Modification des informations d'un candidat ". PHP_EOL;
-print "4 - Recherche  ". PHP_EOL;
-print "5 - Quitter ". PHP_EOL;
-$menu=readline("Votre choix: ");
-print  PHP_EOL;
-switch ($menu) {
-    case "1":
-    li($candidats);
-    goto menu;
-    case "2":
-    $candidats[]=add($informations);
-    goto menu;
-    case "3":
-    $candidats=modificationCandidats($candidats);
-    goto menu;
-    case "4":   
-    search($candidats);
-    goto menu;
-    case "5":
-    goto qu;
-    default:
-    print "Choisir un chiffre entre 1 et 5". PHP_EOL;
+function menu_FR($candidats)
+{
     print PHP_EOL;
-    goto menu;
+    print("Menu, ou voulez vous aller? "). PHP_EOL;
+    print PHP_EOL;
+    print "1 - Liste des candidats ". PHP_EOL;
+    print "2 - Ajout de candidat ". PHP_EOL;
+    print "3 - Modification des informations d'un candidat ". PHP_EOL;
+    print "4 - Recherche  ". PHP_EOL;
+    print "5 - Quitter ". PHP_EOL;
+    $menu=readline("Votre choix: ");
+    print  PHP_EOL;
+    switch ($menu) {
+        case "1":
+        li($candidats);
+        menu_FR($candidats);
+        case "2":
+        $candidats[]=add($informations);
+        menu_FR($candidats);
+        case "3":
+        $candidats=modificationCandidats($candidats);
+        menu_FR($candidats);
+        case "4":   
+        search($candidats);
+        menu_FR($candidats);
+        case "5":
+        quit($candidats);
+        default:
+        print "Choisir un chiffre entre 1 et 5". PHP_EOL;
+        print PHP_EOL;
+        menu_FR($candidats);
+    }
 }
 
 //End
-qu: 
-print PHP_EOL;
-print "Voulez-vous vraiment quitter le programme ? y/N ";
-$YesNo = readline();
-$YesNo = strtoupper($YesNo);
-    if($YesNo[0] == "Y")
-    {
-        print "Vous quittez le programme". PHP_EOL;
-        goto end;
-    }
-    else
-    {
-        goto menu;
-    }
-    end:
+function quit($candidats) 
+{
+
+    print PHP_EOL;
+    print "Voulez-vous vraiment quitter le programme ? y/N ";
+    $YesNo = readline();
+    $YesNo = strtoupper($YesNo);
+        if($YesNo[0] == "Y")
+        {
+            print "Vous quittez le programme". PHP_EOL;
+            exit;
+        }
+        else
+        {
+            menu_fr($candidats);
+        }
+    
+}
+
+menu_FR($candidats)
 ?>

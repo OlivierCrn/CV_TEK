@@ -171,6 +171,10 @@ switch ($Research) {
 
     case "5":
     return;
+
+    default:
+    print("Merci d'entrer un numéro entre 1 et 5.");
+    search($candidats);
     }
 }
 
