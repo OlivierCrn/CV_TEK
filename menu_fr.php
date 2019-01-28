@@ -1,11 +1,11 @@
 <?php
-//APPEL
+//Call
 require_once('function.php');
 require_once('list.php');
 require_once('search.php');
 require_once('add.php');
 require_once('modification.php');
-// Variables
+//Variables
 $ID = 0;
 $IDs = 0;
 $saisie=0;
@@ -15,9 +15,9 @@ $Skills=array();
 $informations=array();
 $candidats=csv_to_array('hrdata.csv');
 $compteur= 0;
-//DÉBUT DU PROGRAMME:
+//Start
 //General menu:
-a:
+menu:
 print PHP_EOL;
 print("Menu, ou voulez vous aller? "). PHP_EOL;
 print PHP_EOL;
@@ -31,26 +31,25 @@ print  PHP_EOL;
 switch ($menu) {
     case "1":
     li($candidats);
-    goto a;
+    goto menu;
     case "2":
     $candidats[]=add($informations);
-    goto a;
+    goto menu;
     case "3":
     $candidats=modificationCandidats($candidats);
-    goto a;
+    goto menu;
     case "4":   
     search($candidats);
-    goto a;
+    goto menu;
     case "5":
     goto qu;
     default:
     print "Choisir un chiffre entre 1 et 5". PHP_EOL;
     print PHP_EOL;
-    goto a;
+    goto menu;
 }
 
-//Ajout d'un nouveau candidat:
-//Fin du programme:
+//End
 qu: 
 print PHP_EOL;
 print "Voulez-vous vraiment quitter le programme ? y/N ";
@@ -63,7 +62,7 @@ $YesNo = strtoupper($YesNo);
     }
     else
     {
-        goto a;
+        goto menu;
     }
     end:
 ?>
