@@ -11,7 +11,7 @@ print("Code postal: ").PHP_EOL;
 print("Ville: ").PHP_EOL;
 print("Téléphone fixe: ").PHP_EOL;
 print("Téléphone portable: ").PHP_EOL;
-print("MAIL: ").PHP_EOL;
+print("Mail: ").PHP_EOL;
 print("Profil recherché: ").PHP_EOL;
 print("Compétences (de 5 minimum à 10 maximum): ").PHP_EOL;
 print PHP_EOL;
@@ -60,18 +60,18 @@ while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !pre
 		$informations["MOBILE"]=readline ("Téléphone portable: ");
 		}
 	}
-$informations["MAIL"]= readline("MAIL: ");
+$informations["MAIL"]= readline("Mail: ");
 while(!preg_match ("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$informations["MAIL"]))
 	{
 	if (empty($informations["MAIL"]))
 		{
 		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-		$informations["MAIL"]= readline("MAIL: ");
+		$informations["MAIL"]= readline("Mail: ");
 		}
 		else
 		{		
 		print " CE MAIL N'EST PAS VALIDE.". PHP_EOL;
-		$informations["MAIL"]=readline ("MAIL: ");
+		$informations["MAIL"]=readline ("Mail: ");
 		}
 	}	
 $informations["PROFILE"]=readline ("Profil recherché: ");
