@@ -2,7 +2,6 @@
 
 function add()
 {
-$buffer="";
 print ("Nom: ").PHP_EOL;
 print("Prénom: ").PHP_EOL;
 print("Date de naissance: ").PHP_EOL;
@@ -32,18 +31,11 @@ while (empty($informations["FIRSTNAME"]))
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
 $informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
-while (empty( $informations["BIRTHDATE"] ))
+while (empty($informations["BIRTHDATE"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-    $informations["BIRTHDATE"]  = readline("Date de naissance au format dd/mm/yyyy: ");
+	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
 }
-
-/*while(!preg_match(d{1,2}/\d{1,2}/\d{4}$ , $value ))
-{
-    print("Format de date non valide");
-    $informations["BIRTHDATE"]  = readline("Date de naissance au format dd/mm/yyyy: ");
-
-} */
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
 print PHP_EOL;
@@ -53,11 +45,21 @@ $informations["POSTCODE"]= readline("Code postal: ");
 $informations["TOWN"]= readline("Ville: ");
 $informations["PHONE"]=readline("Téléphone fixe: ");
 $informations["MOBILE"]=readline ("Téléphone portable: ");
-while (empty($informations["MOBILE"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["MOBILE"]=readline ("Téléphone portable: ");
-}
+/* strlen () => compte le nombre de caractères d'une chaine*/
+/*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) || !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
+while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
+	{	
+	if (empty($informations["MOBILE"]))
+		{
+		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
+		$informations["MOBILE"]=readline ("Téléphone portable: ");
+		}
+	else
+		{		
+		print " CE NUMÉRO N'EST PAS VALIDE.". PHP_EOL;
+		$informations["MOBILE"]=readline ("Téléphone portable: ");
+		}
+	}
 $informations["MAIL"]= readline("MAIL: ");
 while (empty($informations["MAIL"]))
 {
