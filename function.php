@@ -42,7 +42,7 @@ function affichage($candidats)
             else
             {
             print($key1);
-            print(" ");
+            print(": ");
             print($value1);
             print(" ") .PHP_EOL;
             }
@@ -67,25 +67,25 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
         {
             $temp=array();
             $temps=array();
-            $temp["LASTNAME"] = strtoupper(removeAccents(trim($information[1])));
-            $temp["FIRSTNAME"] = strtoupper(removeAccents(trim($information[2])));
+            $temp["LASTNAME"] = strtoupper(removeAccents($information[1]));
+            $temp["FIRSTNAME"] = strtoupper(removeAccents($information[2]));
             $temp["BIRTHDATE"] = trim($information[4]);
             $temp["AGE"] = age($information[4]);
-            $temp["ADRESS1"] = strtoupper(removeAccents(trim($information[5])));
-            $temp["ADRESS2"]= strtoupper(removeAccents(trim($information[6])));
-            $temp["POSTCODE"]=strtoupper(removeAccents(trim($information[7])));
-            $temp["TOWN"]=strtoupper(removeAccents(trim($information[8])));
+            $temp["ADRESS1"] = strtoupper(removeAccents($information[5]));
+            $temp["ADRESS2"]= strtoupper(removeAccents($information[6]));
+            $temp["POSTCODE"]=strtoupper(removeAccents($information[7]));
+            $temp["TOWN"]=strtoupper(removeAccents($information[8]));
             $temp["MOBILE"] = trim($information[9]);
             $temp["PHONE"] =trim($information[10]);
-            $temp["MAIL"] = strtoupper(removeAccents(trim($information[11])));
-            $temp["PROFILE"] = strtoupper(removeAccents(trim($information[12])));
+            $temp["MAIL"] = strtoupper(removeAccents($information[11]));
+            $temp["PROFILE"] = strtoupper(removeAccents($information[12]));
 			$count_skills=0;
             for($i=0; $i<10; $i++)
             {    
                 if ($information[$i+13] !=$nul)
 				{
 					$count_skills++;
-					$temps[]=strtoupper(removeAccents(trim($information[$i+13])));
+					$temps[]=strtoupper(removeAccents($information[$i+13]));
 				}
             }
             $temp["SKILLS"] = $temps;

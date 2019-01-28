@@ -1,7 +1,14 @@
 <?php
     function modificationCandidats($candidats)
     {
-        LastName($candidats);
+        foreach($candidats as $key => $value)
+        {
+            foreach($value as $key1 => $value1)
+            {
+
+            }
+        }
+        LastNameSearch($candidats);
         print PHP_EOL;
         $ID = readline("Entrez l'ID de la personne que vous souhaitez modifier:");
         $Askey = cleanInput(readline("Que voulez-vous modifier? (Entrer une option):" ));
@@ -26,10 +33,11 @@
             $buffer = cleanInput(readline("Entrez la nouvelle valeur:"));
                 while(empty($buffer))
                 {
-                    $buffer = readline("Erreur, vous devez obligatoirement saisir quelque chose..");
+                    $buffer = cleanInput(readline("Erreur, vous devez obligatoirement saisir quelque chose.."));
                 }
             $candidats[$ID][$Askey] = $buffer;    
         }
+        affichage($candidats);
     return $candidats;
     }
     ?>

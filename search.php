@@ -2,6 +2,7 @@
 
 function LastName($candidats) 
 {
+    $validation = FALSE;
     $saisie=cleanInput(readline("Nom : "));
     $resultats=array();
     $compt_resultats=1;
@@ -10,17 +11,54 @@ for ($i=1;$i<=count($candidats);$i++)
     {
     if ($saisie==$candidats[$i]["LASTNAME"]) 
         {
+        $validation = TRUE;
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
     }
-affichage($resultats);  
-search($candidats);
+    if($validation)
+    {
+        affichage($resultats);  
+        search($candidats);
+    }
+    else
+    {
+        print("Pas de résultat...").PHP_EOL;
+        search($candidats);
+    }
+
+}
+
+function LastNameSearch($candidats)
+{
+    $validation = FALSE;
+    $saisie=cleanInput(readline("Nom : "));
+    $resultats=array();
+    $compt_resultats=1;
+    for ($i=1;$i<=count($candidats);$i++) 
+        {
+        if ($saisie==$candidats[$i]["LASTNAME"]) 
+            {
+            $validation = TRUE;
+            $resultats[$compt_resultats]=$candidats[$i];
+            $compt_resultats++;
+            }
+        }
+    if($validation)
+    {
+        affichage($resultats); 
+    }
+    else
+    {
+        print("Pas de résultat...") .PHP_EOL;
+        modificationCandidats($candidats);
+    }
 }
 
 
 function Ages($candidats)
 {
+    $validation = FALSE;
     $saisie=cleanInput(readline("Age : "));
     $resultats=array();
     $compt_resultats=1;
@@ -29,16 +67,26 @@ for ($i=1; $i<=count($candidats); $i++)
     {
     if ($saisie==$candidats[$i]["AGE"]) 
         {
+        $validation = TRUE;
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
     }
-affichage($resultats);
-search($candidats);
+    if($validation)
+    {
+        affichage($resultats);  
+        search($candidats);
+    }
+    else
+    {
+        print("Pas de résultat...") .PHP_EOL;
+        search($candidats);
+    }
 }
 
 function Town($candidats) 
 {
+    $validation = FALSE;
     $saisie=cleanInput(readline("Ville : "));
     $resultats=array();
     $compt_resultats=1;
@@ -46,37 +94,57 @@ for ($i=1; $i<=count($candidats); $i++)
     {
     if($saisie==$candidats[$i]["TOWN"]) 
         {
+        $validation = TRUE;
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
     }
-affichage($resultats);  
-search($candidats); 
+    if($validation)
+    {
+        affichage($resultats);  
+        search($candidats);
+    }
+    else
+    {
+        print("Pas de résultat...") .PHP_EOL;
+        search($candidats);
+    }
 }
 
 
-function Skills($candidiats) 
+function Skills($candidats) 
 {
+    $validation = FALSE;
     $saisie=cleanInput(readline("Competences : "));
     $resultats=array();
     $compt_resultats=1;
 for ($i=1; $i<=count($candidats); $i++) 
     {
-    if ($saisie==$candidats[$i]["SKILLS"]) 
+        $compt = 0;
+    if ($saisie==$candidats[$i]["SKILLS"][$compt]) 
         {
+        $validation = TRUE;
         $resultats[$compt_resultats]=$candidats[$i];
         $compt_resultats++;
         }
     }
-affichage($resultats);  
-search($candidats);  
+    if($validation)
+    {
+        affichage($resultats);  
+        search($candidats);
+    }
+    else
+    {
+        print("Pas de résultat...") .PHP_EOL;
+        search($candidats);
+    }
 }
 
 function search($candidats)
 
 {
     //affichage($candidats);
-print "Que voulez vous chercher?". PHP_EOL;
+print "Quel critère de recherche voulez-vous utiliser ?". PHP_EOL;
 print PHP_EOL;
 print "1 - Rechercher par nom". PHP_EOL;
 print "2 - Rechercher par Age". PHP_EOL;
@@ -107,7 +175,5 @@ switch ($REsearch) {
     return;
     }
 }
-
-
 
 ?>
