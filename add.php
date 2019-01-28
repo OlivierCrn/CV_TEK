@@ -30,11 +30,22 @@ while (empty($informations["FIRSTNAME"]))
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
-$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
-while (empty($informations["BIRTHDATE"]))
+print("Date de naissance au format dd-mm-yyyy: ");
+$DOB = $informations["Birthdate"]=readline();
+$today = date("d-m-Y");
+$DOB = str_replace("/", "-", $DOB);
+while (strtotime($DOB) >= strtotime($today))
+	{
+		print "Vous êtes bien jeune... Recommencez:";
+		$informations["Birthdate"]=readline();
+		break;
+	}
+	
+	while (empty($informations["Birthdate"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+	print("Date de naissance au format dd-mm-yyyy: ");
+	$informations["Birthdate"]=readline();
 }
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
