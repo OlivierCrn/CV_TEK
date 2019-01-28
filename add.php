@@ -46,8 +46,8 @@ $informations["TOWN"]= readline("Ville: ");
 $informations["PHONE"]=readline("Téléphone fixe: ");
 $informations["MOBILE"]=readline ("Téléphone portable: ");
 /* strlen () => compte le nombre de caractères d'une chaine*/
-/*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) || !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
-while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) || "#^0033[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
+/*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) && !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
+while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !preg_match("#^0033[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
 	{	
 	if (empty($informations["MOBILE"]))
 		{
@@ -61,11 +61,19 @@ while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) || "#^0
 		}
 	}
 $informations["MAIL"]= readline("MAIL: ");
-while (empty($informations["MAIL"]))
-{
-	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	$informations["MAIL"]= readline("MAIL: ");
-}
+while(!preg_match ("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$informations["MAIL"]))
+	{
+	if (empty($informations["MAIL"]))
+		{
+		print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
+		$informations["MAIL"]= readline("MAIL: ");
+		}
+		else
+		{		
+		print " CE MAIL N'EST PAS VALIDE.". PHP_EOL;
+		$informations["MAIL"]=readline ("MAIL: ");
+		}
+	}	
 $informations["PROFILE"]=readline ("Profil recherché: ");
 while (empty($informations["PROFILE"]))
 {
