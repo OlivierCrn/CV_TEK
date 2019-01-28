@@ -30,22 +30,11 @@ while (empty($informations["FIRSTNAME"]))
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
 	$informations["FIRSTNAME"]=readline("Prénom: ");
 }
-print("Date de naissance au format dd-mm-yyyy: ");
-$DOB = $informations["Birthdate"]=readline();
-$today = date("d-m-Y");
-$DOB = str_replace("/", "-", $DOB);
-while (strtotime($DOB) >= strtotime($today))
-	{
-		print "Vous êtes bien jeune... Recommencez:";
-		$informations["Birthdate"]=readline();
-		break;
-	}
-	
-	while (empty($informations["Birthdate"]))
+$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
+while (empty($informations["BIRTHDATE"]))
 {
 	print " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.". PHP_EOL;
-	print("Date de naissance au format dd-mm-yyyy: ");
-	$informations["Birthdate"]=readline();
+	$informations["BIRTHDATE"]=readline("Date de naissance au format dd/mm/yyyy: ");
 }
 print("Âge: ");
 print $informations["AGE"]= age ($informations["BIRTHDATE"]);
@@ -58,7 +47,7 @@ $informations["PHONE"]=readline("Téléphone fixe: ");
 $informations["MOBILE"]=readline ("Téléphone portable: ");
 /* strlen () => compte le nombre de caractères d'une chaine*/
 /*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) || !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
-while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
+while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) || "#^0033[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
 	{	
 	if (empty($informations["MOBILE"]))
 		{
