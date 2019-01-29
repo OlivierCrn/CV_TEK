@@ -2,7 +2,7 @@
 // Candidates list's menu
 function li($candidats)
 {
-print "Liste des candidats: ". PHP_EOL;
+print $traduction["LIST1"]. PHP_EOL;
 print PHP_EOL;
 foreach($candidats as $key => $informations) 
 {
@@ -11,19 +11,19 @@ foreach($candidats as $key => $informations)
 array_multisort($LastNamesA, SORT_ASC, $candidats);
 affichage($candidats);
 sort:
-print "De quelle facon voulez vous trier la liste?". PHP_EOL;
+print $traduction["LIST2"]. PHP_EOL;
 print PHP_EOL;
 print PHP_EOL;
-print "1 - Trier par nom (descendant)". PHP_EOL;
-print "2 - Trier par ville (ascendant)". PHP_EOL;
-print "3 - Trier par ville (descendant)". PHP_EOL;
-print "4 - Trier par age (ascendant)". PHP_EOL;
-print "5 - Trier par age (descendant)". PHP_EOL;
-print "6 - Trier par profil (ascendant)". PHP_EOL;
-print "7 - Trier par profil (descendant)". PHP_EOL;
-print "8 - RETOUR AU MENU PRINCIPAL". PHP_EOL;
+print $traduction["LIST3"]. PHP_EOL;
+print $traduction["LIST4"]. PHP_EOL;
+print $traduction["LIST5"]. PHP_EOL;
+print $traduction["LIST6"]. PHP_EOL;
+print $traduction["LIST7"]. PHP_EOL;
+print $traduction["LIST8"]. PHP_EOL;
+print $traduction["LIST9"]. PHP_EOL;
+print $traduction["LIST10"]. PHP_EOL;
 print PHP_EOL;
-$choices= readline("Votre choix: ");
+$choices= readline($traduction["MENU_CHOICE"]);
 print PHP_EOL;
 switch ($choices) {
     case "1":
@@ -43,7 +43,7 @@ switch ($choices) {
     case "8":
     goto back;
     default:
-    print "Votre choix: ".PHP_EOL;
+    print $traduction["MENU_CHOICE"].PHP_EOL;
     print PHP_EOL;
 }
 nameD:
