@@ -1,7 +1,5 @@
 <?php
-
-$traduction= array()
-
+$traduction=array();
 $traduction["LASTNAME"] = "NOM";
 $traduction["FIRSTNAME"] = "PRÉNOM";
 $traduction["BIRTHDATE"] = "DATE DE NAISSANCE";
@@ -12,19 +10,19 @@ $traduction["POSTCODE"]= "CODE POSTAL";
 $traduction["TOWN"]= "VILLE";
 $traduction["MOBILE"] = "TÉLÉPHONE PORTABLE";
 $traduction["PHONE"] = "TÉLÉPHONE FIXE";
-$traduction["MAIL"] = "EMAIL";
+$traduction["MAIL"] = "MAIL";
 $traduction["PROFILE"] = "PROFIL";
 $traduction["SKILLS"] = "COMPÉTENCES";
-$traduction["MAIN_MENU1"]= "Menu, ou voulez vous aller? ";
+$traduction["MAIN_MENU1"]= "Menu principal, que voulez vous faire? ";
 $traduction["MAIN_MENU2"]= "1 - Liste des candidats ";
 $traduction["MAIN_MENU3"]= "2 - Ajout de candidat ";
 $traduction["MAIN_MENU4"]= "3 - Modification des informations d'un candidat ";
 $traduction["MAIN_MENU5"]= "4 - Recherche  ";
 $traduction["MAIN_MENU6"]= "5 - Quitter ";
-$traduction["MENU_CHOICE"]= "Votre choix: ";
+$traduction["MENU_CHOICE"]= "Votre choix : ";
 $traduction["MAIN_MENU_DEFAULT"]= "Choisir un chiffre entre 1 et 5";
 $traduction["MENU_QUIT1"]= "Voulez-vous vraiment quitter le programme ? Y/N ";
-$traduction["MENU_QUIT2"]= "Vous quittez le programme";
+$traduction["MENU_QUIT2"]= "Vous quittez le programme, au revoir.";
 $traduction["LIST1"]= "Liste des candidats: ";
 $traduction["LIST2"]= "De quelle facon voulez vous trier la liste?";
 $traduction["LIST3"]= "1 - Trier par nom (descendant)";
@@ -35,52 +33,59 @@ $traduction["LIST7"]= "5 - Trier par age (descendant)";
 $traduction["LIST8"]= "6 - Trier par profil (ascendant)";
 $traduction["LIST9"]= "7 - Trier par profil (descendant)";
 $traduction["LIST10"]= "8 - RETOUR AU MENU PRINCIPAL";
-$traduction["SKILLS_COUNT"]= "Compétence N°"
+$traduction["SKILLS_COUNT"]= "Compétence N°";
 $traduction["MODIFY1"]= "Veuillez entrer le nom de la personne dont vous souhaitez modifier le profil : ";
-$traduction["MODIFY2"]= "Entrez l'ID de la personne que vous souhaitez modifier: ";
-$traduction["MODIFY3"]= "Que voulez-vous modifier? (Entrer une option):";
-$traduction["MODIFY4"]= "Entrez l'ID de la compétence à éditer:";
+$traduction["MODIFY2"]= "Entrez l'ID de la personne que vous souhaitez modifie r: ";
+$traduction["MODIFY3"]= "Que voulez-vous modifier? (Entrer une option) :";
+$traduction["MODIFY4"]= "Entrez l'ID de la compétence à éditer :";
 $traduction["MODIFY5"]= "Entrez la nouvelle valeur:";
 $traduction["MODIFY6"]= "Erreur, vous devez obligatoirement saisir quelque chose..";
 $traduction["MODIFY7"]= "Mise à jour effectuée";
-$traduction["MODIFY8"]= 
-$traduction["MODIFY9"]= 
-$traduction["MODIFY10"]= 
-$traduction["MODIFY11"]= 
-$traduction["MODIFY12"]= 
-$traduction["MODIFY"]= 
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
-$traduction
+$traduction["SEARCH1"]= "Nom : ";
+$traduction["SEARCH2"]= "Pas de résultat... Sucker";
+$traduction["SEARCH3"]= "Age : ";
+$traduction["SEARCH4"]= "Competences : ";
+$traduction["SEARCH5"]= "Quel critère de recherche voulez-vous utiliser ?";
+$traduction["SEARCH6"]= "1 - Rechercher par nom";
+$traduction["SEARCH7"]= "2 - Rechercher par Age";
+$traduction["SEARCH8"]= "3 - Rechercher par Ville";
+$traduction["SEARCH9"]= "4 - Rechercher par Competences";
+$traduction["SEARCH10"]= "5 - Retour au menu principal";
+$traduction["SEARCH11"]= "Merci d'entrer un numéro entre 1 et 5.";
+$traduction["SEARCH12"]= "Ville : ";
+$traduction["ADD0"]= "Nom: ";
+$traduction["ADD1"]= "Prénom: ";
+$traduction["ADD2"]= "Date de naissance: ";
+$traduction["ADD3"]= "Adresse: ";
+$traduction["ADD4"]= "Adresse suite: ";
+$traduction["ADD5"]= "Code postal: ";
+$traduction["ADD6"]= "Ville: ";
+$traduction["ADD7"]= "Téléphone fixe: ";
+$traduction["ADD8"]= "Téléphone portable: ";
+$traduction["ADD9"]= "Mail: ";
+$traduction["ADD10"]= "Profil recherché: ";
+$traduction["ADD11"]= "Compétences (de 5 minimum à 10 maximum): ";
+$traduction["ADD12"]= "Nouveau Candidat";
+$traduction["ADD13"]= "Date de naissance au format dd/mm/yyyy: ";
+$traduction["ADD14"]= " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.";
+$traduction["ADD15"]= " CE NUMÉRO N'EST PAS VALIDE.";
+$traduction["ADD16"]= " CE MAIL N'EST PAS VALIDE.";
+$traduction["ADD17"]= "Compétences (de 5 minimum à 10 maximum): ";
+$traduction["ADD18"]= "Il y a moins de 5 compétences, merci de rentrer 5 compétences MINIMUM.";
 
 
-
-
+/*$traduction["ADD19"]=
+$traduction["ADD20"]=
+$traduction["ADD21"]=
+$traduction["ADD22"]=
+$traduction["ADD23"]=
+$traduction["ADD24"]=
+$traduction["ADD25"]=
+$traduction["ADD27"]=
+$traduction["ADD28"]=
+$traduction["ADD29"]=
+$traduction["ADD30"]=
+$traduction*/
 ?>
+
+
