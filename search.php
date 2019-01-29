@@ -85,7 +85,7 @@ function Ages($candidats)   // Function which will search candidats depending of
 function Town($candidats)   // Function which will search candidats depending of their town. 
 {
     $validation = FALSE;
-    $saisie=cleanInput(readline("Ville : "));
+    $saisie=cleanInput(readline($traduction["SEARCH12"]));
     $resultats=array();
     $compt_resultats=1;
     for ($i=1; $i<=count($candidats); $i++) 
