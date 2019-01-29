@@ -1,5 +1,6 @@
 <?php
 //Call
+require_once('function.php');
 require_once('list.php');
 require_once('search.php');
 require_once('add.php');
