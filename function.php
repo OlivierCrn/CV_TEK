@@ -27,12 +27,8 @@ function affichage($candidats)
     print PHP_EOL;
     foreach($candidats as $key => $value)
     {
-        print ("ID: ".$key);
-        print PHP_EOL;
         foreach($value as $key1 => $value1)
         {
-			
-			/*print $traduction[$key1]; => conseil Jérôme*/
             if($key1 == "SKILLS")
                 {
                 print($key1.":") .PHP_EOL;
@@ -54,7 +50,7 @@ function affichage($candidats)
         print PHP_EOL;
     }
 }
-//--FUNCTION THAT EXTRACT THE CSV FILE
+//--FUNCTION THAT EXTRACT THE CVS FILE
 function csv_to_array($filename='hrdata.csv', $delimiter=';')
 {
     $nul= "NULL";
@@ -69,6 +65,7 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
         {
             $temp=array();
             $temps=array();
+            $temp["ID"]= $information[0];
             $temp["LASTNAME"] = strtoupper(removeAccents($information[1]));
             $temp["FIRSTNAME"] = strtoupper(removeAccents($information[2]));
             $temp["BIRTHDATE"] = trim($information[4]);
@@ -110,3 +107,51 @@ function age ($DOB)
     $age = intval($cal/(60*60*24*365.25));
 	return $age;
 }
+
+
+function write ($candidats)
+{
+    $delimiter = ";";
+    $today = date("d-m-Y");
+    rename('hrdata.csv' , 'hrdata'.$today.'.csv');
+    
+    $firstline=true;
+    $handle = fopen('hrdata.csv', 'w');
+    foreach($candidats as $key => $value)
+    {  
+        if ($firstline==true) 
+        {
+            $headers= array_keys($value);
+            for($i = 2; $i < 11 ; $i++ )
+                {
+                $headers[]="SKILLS ".$i;
+                }
+            fputcsv($handle , $headers , $delimiter);
+            $firstline=false;
+        }
+        foreach($value as $key1 => $value1)
+        {
+            if($key1 == "SKILLS")
+            {
+                for($i = 0; $i < 10 ; $i++)
+                {
+                    if(empty($value["SKILLS"][$i]))
+                    {
+                        $value[] = "NULL";
+                    }
+                    else
+                    {
+                        $value[] = $value["SKILLS"][$i];
+                    }
+                }
+                unset($value["SKILLS"]);
+            }
+           
+        }
+        fputcsv($handle , $value , $delimiter);
+    }
+    fclose($handle);
+    return;
+}
+
+?>
