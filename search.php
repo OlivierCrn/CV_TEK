@@ -1,6 +1,6 @@
 <?php
 
-function LastName($candidats) // Function which will search candidats depending of their name. 
+function LastName($candidats, $traduction) // Function which will search candidats depending of their name. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline($traduction["SEARCH1"]));
@@ -18,7 +18,8 @@ function LastName($candidats) // Function which will search candidats depending 
     if($validation)
     {
         affichage($resultats);  
-        search($candidats);
+        open_cv($candidats, $traduction);
+        search($candidats, $traduction);
     }
     else
     {
@@ -28,7 +29,7 @@ function LastName($candidats) // Function which will search candidats depending 
 
 }
 
-function LastNameSearch($candidats) // Function only used by "modification.php"
+function LastNameSearch($candidats, $traduction) // Function only used by "modification.php"
 {
     $validation = FALSE;
     $saisie=cleanInput(readline($traduction["SEARCH1"]));
@@ -55,7 +56,7 @@ function LastNameSearch($candidats) // Function only used by "modification.php"
 }
 
 
-function Ages($candidats)   // Function which will search candidats depending of their age. 
+function Ages($candidats, $traduction)   // Function which will search candidats depending of their age. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline($traduction["SEARCH3"]));
@@ -82,7 +83,7 @@ function Ages($candidats)   // Function which will search candidats depending of
     }
 }
 
-function Town($candidats)   // Function which will search candidats depending of their town. 
+function Town($candidats, $traduction)   // Function which will search candidats depending of their town. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline($traduction["SEARCH12"]));
@@ -110,7 +111,7 @@ function Town($candidats)   // Function which will search candidats depending of
 }
 
 
-function Skills($candidats)     // Function which will search candidats depending of their skills. 
+function Skills($candidats, $traduction)     // Function which will search candidats depending of their skills. 
 {
     $validation = FALSE;
     $saisie=cleanInput(readline($traduction["SEARCH4"]));
@@ -138,7 +139,7 @@ function Skills($candidats)     // Function which will search candidats dependin
     }
 }
 
-function search($candidats)
+function search($candidats, $traduction)
 
 {
 // Display the menu for searching
@@ -154,19 +155,19 @@ $Research = readline($traduction["MENU_CHOICE"]);
 
 switch ($Research) {
     case "1":
-    LastName($candidats);
+    LastName($candidats, $traduction);
     break;
 
     case "2": 
-    Ages($candidats);
+    Ages($candidats, $traduction);
     break;
 
     case "3":
-    Town($candidats);
+    Town($candidats, $traduction);
     break;
 
     case "4":
-    Skills($candidats);
+    Skills($candidats, $traduction);
     break;
 
     case "5":
@@ -174,7 +175,7 @@ switch ($Research) {
 
     default:
     print($traduction["SEARCH11"]);
-    search($candidats);
+    search($candidats , $traduction);
     }
 }
 

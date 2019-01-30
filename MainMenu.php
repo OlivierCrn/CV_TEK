@@ -38,10 +38,13 @@ function MainMenu($candidats,$traduction)
         MainMenu($candidats,$traduction);
         case "5":
         quit($candidats, $traduction);
+        case "6":
+        open_cv($candidats);
         default:
         print $traduction["MAIN_MENU_DEFAULT"]. PHP_EOL;
         print PHP_EOL;
         MainMenu($candidats,$traduction);
+
     }
 }
 

@@ -35,7 +35,7 @@ $traduction["LIST9"]= "7 - Trier par profil (descendant)";
 $traduction["LIST10"]= "8 - RETOUR AU MENU PRINCIPAL";
 $traduction["SKILLS_COUNT"]= "Compétence N°";
 $traduction["MODIFY1"]= "Veuillez entrer le nom de la personne dont vous souhaitez modifier le profil : ";
-$traduction["MODIFY2"]= "Entrez l'ID de la personne que vous souhaitez modifie r: ";
+$traduction["MODIFY2"]= "Entrez l'ID de la personne que vous souhaitez modifier: ";
 $traduction["MODIFY3"]= "Que voulez-vous modifier? (Entrer une option) :";
 $traduction["MODIFY4"]= "Entrez l'ID de la compétence à éditer :";
 $traduction["MODIFY5"]= "Entrez la nouvelle valeur:";
@@ -70,12 +70,12 @@ $traduction["ADD13"]= "Date de naissance au format dd/mm/yyyy: ";
 $traduction["ADD14"]= " CETTE INFORMATION EST OBLIGATOIRE POUR L'AJOUT DE TOUTE NOUVELLE CANDIDATURE.";
 $traduction["ADD15"]= " CE NUMÉRO N'EST PAS VALIDE.";
 $traduction["ADD16"]= " CE MAIL N'EST PAS VALIDE.";
-$traduction["ADD17"]= "Compétences (de 5 minimum à 10 maximum): ";
-$traduction["ADD18"]= "Il y a moins de 5 compétences, merci de rentrer 5 compétences MINIMUM.";
-
-
-/*$traduction["ADD19"]=
-$traduction["ADD20"]=
+$traduction["ADD17"]= " Compétences (de 5 minimum à 10 maximum): ";
+$traduction["ADD18"]= " Il y a moins de 5 compétences, merci de rentrer 5 compétences MINIMUM.";
+$traduction["ADD19"]= " Voulez-vous afficher le CV d'une personne recherchée Y/n? ";
+$traduction["ADD20"]= " Entrez l'ID de la personne dont vous souhaitez afficher le CV";
+$traduction["ADD21"]= " Format du CV non pris en charge"
+/*$traduction["ADD20"]=
 $traduction["ADD21"]=
 $traduction["ADD22"]=
 $traduction["ADD23"]=
@@ -84,8 +84,7 @@ $traduction["ADD25"]=
 $traduction["ADD27"]=
 $traduction["ADD28"]=
 $traduction["ADD29"]=
-$traduction["ADD30"]=
-$traduction*/
+$traduction["ADD30"]=*/
 ?>
 
 

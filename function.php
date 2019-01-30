@@ -108,7 +108,7 @@ function age ($DOB)
 	return $age;
 }
 
-// --FUNCTION THAT SAVES AUTOMATICALLY THE PREVIOUS VERSION OF THE CVS WHEN THE PERSON LEAVES THE PROGRAM
+
 function write ($candidats)
 {
     $delimiter = ";";
@@ -154,4 +154,29 @@ function write ($candidats)
     return;
 }
 
+
+function open_cv($candidats, $traduction)
+{
+    print($traduction["ADD19"]);
+    $cv = "";
+    $YesNo = readline();
+    $YesNo = strtoupper($YesNo);
+        if($YesNo[0] == "Y")
+        {   
+            $cv = readline($traduction["ADD20"]);
+            if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf')) 
+            {
+                echo exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf');
+
+            } 
+            else if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.docx')) 
+            {
+                echo exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.docx');
+
+            } else 
+            {
+                print "Fichier CV non valide";
+            }
+        }
+}
 ?>

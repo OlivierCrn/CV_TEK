@@ -71,11 +71,11 @@ $traduction["ADD14"]= " THIS INFORMATION IS NECESSARY TO ADD A NEW CANDIDATE";
 $traduction["ADD15"]= " INVALID NUMBER";
 $traduction["ADD16"]= " INVALID EMAIL";
 $traduction["ADD17"]= "there are less than 5 skills, please type in a minimum of 5.";
+$traduction["ADD19"]= " Voulez-vous afficher le CV d'une personne recherchée Y/n? ";
+$traduction["ADD20"]= "Entrez l'ID de la personne dont vous souhaitez afficher le CV";
+$traduction["ADD21"]= "Format du CV non pris en charge"
 
-
-/*$traduction["ADD19"]=
-$traduction["ADD20"]=
-$traduction["ADD21"]=
+/*
 $traduction["ADD22"]=
 $traduction["ADD23"]=
 $traduction["ADD24"]=
