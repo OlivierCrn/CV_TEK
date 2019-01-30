@@ -70,10 +70,10 @@ $traduction["ADD13"]= "Birthdate (dd/mm/yyyy): ";
 $traduction["ADD14"]= " THIS INFORMATION IS NECESSARY TO ADD A NEW CANDIDATE";
 $traduction["ADD15"]= " INVALID NUMBER";
 $traduction["ADD16"]= " INVALID EMAIL";
-$traduction["ADD17"]= "there are less than 5 skills, please type in a minimum of 5.";
-$traduction["ADD19"]= " Voulez-vous afficher le CV d'une personne recherchée Y/n? ";
-$traduction["ADD20"]= "Entrez l'ID de la personne dont vous souhaitez afficher le CV";
-$traduction["ADD21"]= "Format du CV non pris en charge"
+$traduction["ADD17"]= "There are less than 5 skills. Please type in a minimum of 5.";
+$traduction["ADD19"]= " Would you like to open a specific CV? Y / N ? ";
+$traduction["ADD20"]= " Type in the ID of the person you would like to see the CV of : ";
+$traduction["ADD21"]= " This CV file is not supported."
 
 /*
 $traduction["ADD22"]=
