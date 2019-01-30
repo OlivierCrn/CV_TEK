@@ -108,7 +108,7 @@ function age ($DOB)
 	return $age;
 }
 
-
+// --FUNCTION THAT SAVES AUTOMATICALLY THE PREVIOUS VERSION OF THE CVS WHEN THE PERSON LEAVES THE PROGRAM
 function write ($candidats)
 {
     $delimiter = ";";
