@@ -18,7 +18,7 @@ function LastName($candidats, $traduction) // Function which will search candida
     if($validation)
     {
         affichage($resultats);  
-        open_cv($candidats, $traduction);
+        open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
         search($candidats, $traduction);
     }
     else
@@ -73,7 +73,8 @@ function Ages($candidats, $traduction)   // Function which will search candidats
     }
     if($validation)
     {
-        affichage($resultats);  
+        affichage($resultats); 
+        open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
         search($candidats);
     }
     else
@@ -101,6 +102,7 @@ function Town($candidats, $traduction)   // Function which will search candidats
     if($validation)
     {
         affichage($resultats);  
+        open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
         search($candidats);
     }
     else
@@ -130,6 +132,7 @@ function Skills($candidats, $traduction)     // Function which will search candi
     if($validation)
     {
         affichage($resultats);  
+        open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
         search($candidats);
     }
     else
