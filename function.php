@@ -196,7 +196,7 @@ function open_cv($candidats, $traduction)
             }
         } else if ($YesNo != "Y" && $YesNo != "N")
         {
-            print "Mauvaise saisie. Y or N ?  ";
+            print "ADD26";
             $YesNo = readline();
             $YesNo = strtoupper($YesNo);
             open_cv($candidats, $traduction) ;
