@@ -1,5 +1,5 @@
 <?php
-function modificationCandidats($candidats)
+function modificationCandidats($candidats, $traduction)
 {
     // Initialization of $key1 and $value1
     foreach($candidats as $key => $value)
