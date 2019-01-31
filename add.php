@@ -4,7 +4,7 @@ function add($candidats , $traduction)
 
 /* Display */
 {
-print ($traduction["ADD0"]).PHP_EOL;
+print ($traduction["SEARCH1"]).PHP_EOL;
 print($traduction["ADD1"]).PHP_EOL;
 print($traduction["ADD2"]).PHP_EOL;
 print($traduction["ADD3"]).PHP_EOL;
@@ -22,12 +22,12 @@ print ($traduction["ADD12"]) .PHP_EOL;
 print PHP_EOL;
 
 /* Filling up informations for a new candidate */
-$informations["LASTNAME"]=readline($traduction["ADD0"]);
+$informations["LASTNAME"]=readline($traduction["SEARCH1"]);
 while (empty($informations["LASTNAME"]))
 {
 	/*MANDATORY INFORMATION*/
 	print ($traduction["ADD14"]). PHP_EOL;
-	$informations["LASTNAME"]=readline($traduction["ADD0"]);
+	$informations["LASTNAME"]=readline($traduction["SEARCH1"]);
 }	
 
 $informations["FIRSTNAME"]=readline($traduction["ADD1"]);
