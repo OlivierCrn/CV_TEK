@@ -53,7 +53,6 @@ $traduction["SEARCH9"]= "4 - Buscar por competencias";
 $traduction["SEARCH10"]= "5 - Regreso al menú principal";
 $traduction["SEARCH11"]= "Escoge un número entre 1 y 5, por favor.";
 $traduction["SEARCH12"]= "ciudad : ";
-$traduction["ADD0"]= "Apellido: ";
 $traduction["ADD1"]= "Nombre: ";
 $traduction["ADD2"]= "Fecha de nacimiento: ";
 $traduction["ADD3"]= "Domicilio 1: ";
@@ -70,8 +69,7 @@ $traduction["ADD13"]= "Fecha de nacimiento (dd/mm/yyyy): ";
 $traduction["ADD14"]= " ESTA INFORMACIÓN ES OBLIGATORIA PARA EL AÑADIDO DE TODA NUEVA CANDIDATURA.";
 $traduction["ADD15"]= " ESTE NÚMERO NO ES VALIDÓ.";
 $traduction["ADD16"]= " ESTE CORREO ELECTRÓNICO NO ES VALIDÓ.";
-$traduction["ADD17"]= " Competencias (5 al mínimo y 10 al máximo): ";
-$traduction["ADD18"]= " Hay menos de 5 competencias. Por favor, entra 5 competencias al MÍNIMO.";
+$traduction["ADD17"]= " Hay menos de 5 competencias. Por favor, entra 5 competencias al MÍNIMO.";
 $traduction["ADD19"]= " ¿ Quiere mostrar el CV de una persona buscada Y/n ? ";
 $traduction["ADD20"]= " ID de la persona de la cual quiere mostrar el CV: ";
 $traduction["ADD21"]= " Formato del CV no soportado";
@@ -79,16 +77,7 @@ $traduction["ADD22"]= "¿ Quiere abrir el/los sitio(s) web del candidato ? Y/NO 
 $traduction["ADD23"]= " ES MUY JOVEN O QUIZÁS ES UN ERROR - ENTRADA ERRÓNEA ";
 $traduction["ADD24"]= "Este candidato ya existe , está seguro quiere añadir le ? Y/N?";
 $traduction["ADD25"]= "Está bien, adelante!";
-/*$traduction["ADD20"]=
-$traduction["ADD21"]=
-$traduction["ADD22"]=
-$traduction["ADD23"]=
-$traduction["ADD24"]=
-$traduction["ADD25"]=
-$traduction["ADD27"]=
-$traduction["ADD28"]=
-$traduction["ADD29"]=
-$traduction["ADD30"]=*/
+
 ?>
 
 
