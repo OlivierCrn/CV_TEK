@@ -51,7 +51,7 @@ while (!preg_match("#^(0?[1-9]|[0-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0
 		}
 		else
 		{
-		print " VOUS ÊTES BIEN JEUNE OU ALORS C'EST UNE ERREUR - ENTREE ERONNEE ". PHP_EOL;
+		print $traduction["ADD23"]. PHP_EOL;
 		$informations["BIRTHDATE"]=readline($traduction["ADD13"]);
 		$DOB = $informations["BIRTHDATE"];		
 		}
@@ -67,12 +67,12 @@ for($i = 1; $i < count($candidats); $i++)
 {
     if ($informations["LASTNAME"] == $candidats[$i]["LASTNAME"] && $informations["FIRSTNAME"] == $candidats[$i]["FIRSTNAME"] && $informations["BIRTHDATE"] == $candidats[$i]["BIRTHDATE"]) 
     {     
-        print "Ce candidat existe deja, etes vous sur de vouloir l'ajouter? Y or N?";
+        print $traduction["ADD24"];
         $YesNo = readline();
         $YesNo = strtoupper($YesNo);
            if($YesNo[0] == "Y")
             {
-            print "D'accord, allez y!". PHP_EOL;
+            print $traduction["ADD25"]. PHP_EOL;
             goto nextstep;
             }
         else

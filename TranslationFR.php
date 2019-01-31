@@ -77,6 +77,8 @@ $traduction["ADD20"]= " ID de la personne dont vous souhaitez afficher le CV";
 $traduction["ADD21"]= " Format du CV non pris en charge";
 $traduction["ADD22"]= "Voulez vous ouvrir le/les site(s) web du candidat? Y or NO?  ";
 $traduction["ADD23"]= " VOUS ÊTES BIEN JEUNE OU ALORS C'EST UNE ERREUR - ENTREE ERONNEE ";
+$traduction["ADD24"]= "Ce candidat existe deja, etes vous sur de vouloir l'ajouter? Y or N?";
+$traduction["ADD25"]= "D'accord, allez y!";
 ?>
 
 
