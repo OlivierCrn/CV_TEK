@@ -101,10 +101,10 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
 //--FUNCTION THAT CALCULATES THE AGE BASED ON THE BIRTHDATE INPUT
 function age ($DOB)
 {
-    $DOB = str_replace("/", "-", $DOB);
+    $DOB = str_replace("/", "-", $DOB); // replaces / by - so it's readable in PHP
     $today = date("d-m-Y");
-    $cal = strtotime($today) - strtotime($DOB);
-    $age = intval($cal/(60*60*24*365.25));
+    $cal = strtotime($today) - strtotime($DOB); //turns the date into a readable string for the program
+    $age = intval($cal/(60*60*24*365.25)); //intval rounds up the age then the years difference ($cal) is divided by the seconds, minutes, hours and days - days are 365.25 to take in the leap years- 
 	return $age;
 }
 
@@ -114,7 +114,7 @@ function write ($candidats)
     $temp = "";
     $delimiter = ";";
     $today = date("d-m-Y");
-    rename('hrdata.csv' , 'hrdata'.$today.'.csv');
+    rename('hrdata.csv' , 'hrdata'.$today.'.csv'); // to add today's date to the file name so it can be saved in a new file.
     
     $firstline=true;
     $handle = fopen('hrdata.csv', 'w');
@@ -184,7 +184,7 @@ function open_cv($candidats, $traduction)
             $cv = readline($traduction["ADD20"]);
             if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf')) 
             {
-                exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf');
+                exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf'); // opens a file with the appropriate software
             } 
             else if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.docx')) 
             {
