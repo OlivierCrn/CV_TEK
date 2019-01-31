@@ -61,41 +61,51 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
     $candidats = array();
     if (($handle = fopen($filename, 'r')) !== FALSE) // Open the file
     {
+
+        $firstline=true;
+
         while (($information = fgetcsv($handle, 1000, $delimiter)) !== FALSE) // Allows the program to go through all the csv file until the end. 
         {
-            $temp=array();
-            $temps=array();
-            $temp["ID"]= $information[0];
-            $temp["LASTNAME"] = strtoupper(removeAccents($information[1]));
-            $temp["FIRSTNAME"] = strtoupper(removeAccents($information[2]));
-            $temp["BIRTHDATE"] = trim($information[4]);
-            $temp["AGE"] = age($information[4]);
-            $temp["ADRESS1"] = strtoupper(removeAccents($information[5]));
-            $temp["ADRESS2"]= strtoupper(removeAccents($information[6]));
-            $temp["POSTCODE"]=strtoupper(removeAccents($information[7]));
-            $temp["TOWN"]=strtoupper(removeAccents($information[8]));
-            $temp["MOBILE"] = trim($information[9]);
-            $temp["PHONE"] =trim($information[10]);
-            $temp["MAIL"] = strtoupper(removeAccents($information[11]));
-            $temp["PROFILE"] = strtoupper(removeAccents($information[12]));
-			$count_skills=0;
-            for($i=0; $i<10; $i++) // Set all "skills" in the same array
-            {    
-                if ($information[$i+13] !=$nul)
-				{
-					$count_skills++;
-					$temps[]=strtoupper(removeAccents($information[$i+13]));
-				}
+            if ($firstline==false) {
+
+                $temp=array();
+                $temps=array();
+                $temp["ID"]= $information[0];
+                $temp["LASTNAME"] = strtoupper(removeAccents($information[1]));
+                $temp["FIRSTNAME"] = strtoupper(removeAccents($information[2]));
+                $temp["AGE"] = age($information[4]);
+                $temp["BIRTHDATE"] = trim($information[4]);
+                $temp["ADRESS1"] = strtoupper(removeAccents($information[5]));
+                $temp["ADRESS2"]= strtoupper(removeAccents($information[6]));
+                $temp["POSTCODE"]=strtoupper(removeAccents($information[7]));
+                $temp["TOWN"]=strtoupper(removeAccents($information[8]));
+                $temp["MOBILE"] = trim($information[9]);
+                $temp["PHONE"] =trim($information[10]);
+                $temp["MAIL"] = strtoupper(removeAccents($information[11]));
+                $temp["PROFILE"] = strtoupper(removeAccents($information[12]));
+                $count_skills=0;
+                for($i=0; $i<10; $i++) // Set all "skills" in the same array
+                {    
+                    if ($information[$i+13] !=$nul)
+                    {
+                        $count_skills++;
+                        $temps[]=strtoupper(removeAccents($information[$i+13]));
+                    }
+                }
+                $temp["SKILLS"] = $temps;
+                $temp["WEBSITE"] = strtoupper(removeAccents($information[23]));
+                if ($count_skills>=5 && $temp["LASTNAME"]!=$nul && $temp["FIRSTNAME"]!=$nul && $temp["BIRTHDATE"]!=$nul && $temp["MOBILE"]!=$nul && $temp["MAIL"]!=$nul && $temp["PROFILE"]!=$nul)
+                {
+                $candidats[] = $temp; //Set the $temp values at the last line of $candidats before cycle through until done. 
+                }
+            } else {
+                $firstline=false;
             }
-            $temp["SKILLS"] = $temps;
-			if ($count_skills>=5 && $temp["LASTNAME"]!=$nul && $temp["FIRSTNAME"]!=$nul && $temp["BIRTHDATE"]!=$nul && $temp["MOBILE"]!=$nul && $temp["MAIL"]!=$nul && $temp["PROFILE"]!=$nul)
-			{
-            $candidats[] = $temp; //Set the $temp values at the last line of $candidats before cycle through until done. 
-			}
+	
         }
         fclose($handle);    
-    }   
-    unset($candidats[0]); //Removes the first line which contains olds keys 
+    } 
+    
     return $candidats;
 }
 //--FUNCTION THAT CALCULATES THE AGE BASED ON THE BIRTHDATE INPUT
@@ -116,56 +126,68 @@ function write ($candidats)
     $today = date("d-m-Y");
     rename('hrdata.csv' , 'hrdata'.$today.'.csv'); // to add today's date to the file name so it can be saved in a new file.
     
-    $firstline=true;
+   
     $handle = fopen('hrdata.csv', 'w');
+
+    $headers= array();
+
+    $headers[]="ID";
+    $headers[]="LASTNAME";
+    $headers[]="FIRSTNAME";
+    $headers[]="AGE";
+    $headers[]="BIRTHDATE";
+    $headers[]="ADRESS1";
+    $headers[]="ADRESS2";
+    $headers[]="POSTCODE";
+    $headers[]="TOWN";
+    $headers[]="MOBILE";
+    $headers[]="PHONE";
+    $headers[]="MAIL";
+    $headers[]="PROFILE";
+    for($i = 2; $i < 11 ; $i++ )
+        {
+        $headers[11+$i]="SKILLS ".$i;
+        }
+    $headers[] = "WEBSITE";
+    fputcsv($handle , $headers , $delimiter);
+    
+
+
     foreach($candidats as $key => $value)
     {  
 	    // The program checks if it's the first line to insert keys.
-        if ($firstline==true) 
-        {
-            $headers= array_keys($value);
+        
+        $temp=array();
+        $temp["ID"]= $value["ID"];
+        $temp["LASTNAME"] = $value["LASTNAME"];
+        $temp["FIRSTNAME"] = $value["FIRSTNAME"];
+        $temp["AGE"] =  $value["AGE"];
+        $temp["BIRTHDATE"] = $value["BIRTHDATE"];
+        $temp["ADRESS1"] = $value["ADRESS1"];
+        $temp["ADRESS2"]= $value["ADRESS2"];
+        $temp["POSTCODE"]=$value["POSTCODE"];
+        $temp["TOWN"]=$value["TOWN"];
+        $temp["MOBILE"] = $value["MOBILE"];
+        $temp["PHONE"] =$value["PHONE"];
+        $temp["MAIL"] = $value["MAIL"];
+        $temp["PROFILE"] =$value["PROFILE"];
+    // The program divides the array "SKILLS" into 10 keys to become writable in csv file. 
+            for($i = 0; $i < 10; $i++)
+            {
+                if(empty($value["SKILLS"][$i]))
+                {
+                    $temp["SKILL $i"] = "Null";
+                }
+                else
+                {
+                    $temp["SKILLS $i"] = $value["SKILLS"][$i];
+                }
                 
-            for($i = 2; $i < 11 ; $i++ )
-                {
-                $headers[12+$i]="SKILLS ".$i;
-                }
-            $headers[] = "WEBSITE";
-            fputcsv($handle , $headers , $delimiter);
-            $firstline=false;
-        }
-        else
-        {
-            $temp=array();
-            $temp["ID"]= $value["ID"];
-            $temp["LASTNAME"] = $value["LASTNAME"];
-            $temp["FIRSTNAME"] = $value["FIRSTNAME"];
-            $temp["BIRTHDATE"] = $value["BIRTHDATE"];
-            $temp["AGE"] =  $value["AGE"];
-            $temp["ADRESS1"] = $value["ADRESS1"];
-            $temp["ADRESS2"]= $value["ADRESS2"];
-            $temp["POSTCODE"]=$value["POSTCODE"];
-            $temp["TOWN"]=$value["TOWN"];
-            $temp["MOBILE"] = $value["MOBILE"];
-            $temp["PHONE"] =$value["PHONE"];
-            $temp["MAIL"] = $value["MAIL"];
-            $temp["PROFILE"] =$value["PROFILE"];
-		// The program divides the array "SKILLS" into 10 keys to become writable in csv file. 
-                for($i = 0; $i < 10; $i++)
-                {
-                    if(empty($value["SKILLS"][$i]))
-                    {
-                        $temp["SKILL $i"] = "Null";
-                    }
-                    else
-                    {
-                        $temp["SKILLS $i"] = $value["SKILLS"][$i];
-                    }
-                    
-                }
-            $temp["WEBSITE"] = $value["WEBSITE"];
-            $value = $temp;
-            fputcsv($handle , $value , $delimiter);
-        }
+            }
+        $temp["WEBSITE"] = $value["WEBSITE"];
+        $value = $temp;
+        fputcsv($handle , $value , $delimiter);
+        
         
 
     }
@@ -183,13 +205,13 @@ function open_cv($candidats, $traduction)
         if($YesNo[0] == "Y")
         {   
             $cv = readline($traduction["ADD20"]);
-            if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf')) 
+            if (file_exists(realpath('faits/'.$cv .'.pdf'))) 
             {
-                exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.pdf'); // opens a file with the appropriate software
+                exec(realpath('faits/'.$cv .'.pdf')); // opens a file with the appropriate software
             } 
-            else if (file_exists('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.docx')) 
+            else if (file_exists(realpath('faits/'.$cv .'.docx'))) 
             {
-                exec('C:/Users/16010-50-03/Desktop/ProjetCVtek/faits/'.$cv .'.docx');
+                exec(realpath('faits/'.$cv .'.docx'));
             } else 
             {
                 print($traduction["ADD21"]);
@@ -204,15 +226,13 @@ function open_cv($candidats, $traduction)
     print($traduction["ADD22"]);
     $YesNo = readline();
     $YesNo = strtoupper($YesNo);
-    print_r($candidats);
     if($YesNo[0] == "Y")
         { 
+			if(empty($cv))
+			{
+				$cv = readline($traduction["ADD20"]);
+			}
             exec('"C:/Program Files (x86)/Mozilla Firefox/firefox.exe" "'.$candidats[$cv]["WEBSITE"] .'"');
         }
-        else
-        {
-            print($traduction["ADD23"]);
-        }
-	
 }
 ?>
