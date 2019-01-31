@@ -207,7 +207,7 @@ function open_cv($candidats, $traduction)
     print_r($candidats);
     if($YesNo[0] == "Y")
         { 
-            exec('C:/Program Files (x86)/Mozilla Firefox/firefox.exe "'.$candidats[$cv]["WEBSITE"].'"');
+            exec('"C:/Program Files (x86)/Mozilla Firefox/firefox.exe" "'.$candidats[$cv]["WEBSITE"] .'"');
         }
         else
         {
