@@ -50,11 +50,14 @@ $candidats=csv_to_array('hrdata.csv');
 switch ($langue)
  {
     case "1":
-    
     MainMenu($candidats, $traduction);
     break;
+  
     case "2":
-    
+    MainMenu($candidats, $traduction);
+    break;
+  
+    case "3":
     MainMenu($candidats, $traduction);
     break;
  }
