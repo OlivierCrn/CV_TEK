@@ -25,7 +25,7 @@ function modificationCandidats($candidats, $traduction)
         {
             $buffer = readline($traduction["MODIFY6"]);
         }
-        $candidats[$ID][$Askey][$IDs] = $buffer;
+        $candidats[$ID][$Askey][$IDs] = $buffer; // Add the content of $buffer in the array $candidats at location [$ID][$Askey][$IDs]. It's only for SKILLS array. 
     }
     else
     {
@@ -35,7 +35,7 @@ function modificationCandidats($candidats, $traduction)
             {
                 $buffer = cleanInput(readline($traduction["MODIFY6"]));
             }
-        $candidats[$ID][$Askey] = $buffer;    
+        $candidats[$ID][$Askey] = $buffer;    // Add the content of $buffer in the array $candidats at location [$ID][$Askey].
     }
     print $traduction["MODIFY7"];
     return $candidats; // Return the new array of candidats 
