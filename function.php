@@ -193,6 +193,12 @@ function open_cv($candidats, $traduction)
             {
                 print($traduction["ADD21"]);
             }
+        } else if ($YesNo != "Y" && $YesNo != "N")
+        {
+            print "Mauvaise saisie. Y or N ?  ";
+            $YesNo = readline();
+            $YesNo = strtoupper($YesNo);
+            open_cv($candidats, $traduction) ;
         }
     print($traduction["ADD22"]);
     $YesNo = readline();
@@ -208,6 +214,6 @@ function open_cv($candidats, $traduction)
         {
             print($traduction["ADD23"]);
         }
-
+	
 }
 ?>
