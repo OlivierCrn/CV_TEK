@@ -1,6 +1,6 @@
 <?php
 // Candidates list's menu
-function li($candidats)
+function li($candidats, $traduction)
 {
 print $traduction["LIST1"]. PHP_EOL;
 print PHP_EOL;
