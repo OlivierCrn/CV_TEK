@@ -79,20 +79,3 @@ $traduction["ADD24"]= "Este candidato ya existe , está seguro quiere añadir le
 $traduction["ADD25"]= "Está bien, adelante!";
 $traduction["ADD26"]= "Errónea entrada. Y/N (Si/No)?  "
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
