@@ -146,6 +146,7 @@ function search($candidats, $traduction)
 
 {
 // Display the menu for searching
+print PHP_EOL;
 print ($traduction["SEARCH5"]). PHP_EOL;
 print PHP_EOL;
 print ($traduction["SEARCH6"]). PHP_EOL;
