@@ -75,12 +75,12 @@ function Ages($candidats, $traduction)   // Function which will search candidats
     {
         affichage($resultats); 
         open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
-        search($candidats);
+        search($candidats, $traduction);
     }
     else
     {
         print($traduction["SEARCH2"]) .PHP_EOL;
-        search($candidats);
+        search($candidats, $traduction);
     }
 }
 
@@ -103,12 +103,12 @@ function Town($candidats, $traduction)   // Function which will search candidats
     {
         affichage($resultats);  
         open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
-        search($candidats);
+        search($candidats, $traduction);
     }
     else
     {
         print($traduction["SEARCH2"]) .PHP_EOL;
-        search($candidats);
+        search($candidats, $traduction);
     }
 }
 
@@ -133,12 +133,12 @@ function Skills($candidats, $traduction)     // Function which will search candi
     {
         affichage($resultats);  
         open_cv($candidats, $traduction);  //Function which ask to the user if he wants to open CV and website related to a candidate 
-        search($candidats);
+        search($candidats, $traduction);
     }
     else
     {
         print($traduction["SEARCH2"]) .PHP_EOL;
-        search($candidats);
+        search($candidats, $traduction);
     }
 }
 
