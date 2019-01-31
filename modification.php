@@ -8,7 +8,7 @@ function modificationCandidats($candidats, $traduction)
         {}
     }
     print $traduction["MODIFY1"] .PHP_EOL;
-    LastNameSearch($candidats); // We use LastNameSearch to display profil of people user wants to edit. 
+    LastNameSearch($candidats,$traduction); // We use LastNameSearch to display profil of people user wants to edit. 
     print PHP_EOL;
     $ID = readline($traduction["MODIFY2"]);
     $Askey = cleanInput(readline ($traduction["MODIFY3"]));
