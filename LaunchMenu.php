@@ -19,7 +19,7 @@ $compteur= 0;
 
 //DÉBUT DU PROGRAMME:
 la:
-print "Choisissez la langue:". PHP_EOL;
+print "Choisissez la langue/ Choose your language:". PHP_EOL;
 print "1 - Français". PHP_EOL;
 print "2 - English". PHP_EOL;
 print "3 - Español". PHP_EOL;
