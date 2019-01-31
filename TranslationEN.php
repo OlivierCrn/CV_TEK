@@ -76,8 +76,8 @@ $traduction["ADD20"]= " Type in the ID of the person you would like to see the C
 $traduction["ADD21"]= " This CV file is not supported."
 $traduction["ADD22"]= "Open the candidate's website? Y or NO?  ";
 $traduction["ADD23"]= " YOU'RE RATHER YOUNG OR IT MIGHT BE A TYPO. TRY AGAIN";
-$traduction["ADD24"]= "Ce candidat existe deja, etes vous sur de vouloir l'ajouter? Y or N?";
-$traduction["ADD25"]= "D'accord, allez y!";
+$traduction["ADD24"]= "This candidate already exists. Would you still like to proceed? Y or N?  ";
+$traduction["ADD25"]= "Ok, go for it!";
 
 ?>
 
