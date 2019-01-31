@@ -29,17 +29,21 @@ switch ($langue)
  {
     case "1":
     $default_language="FR.php";
-    
     break;
+  
     case "2":
     $default_language="EN.php";
-    
     break;
+  
+   case "3":
+    $default_language="ESP.php";
+    break;
+  
  }
 
 //APPEL
 require_once('function.php');
-require_once('MainMenu.php');
+require_once('mainmenu.php');
 $candidats=csv_to_array('hrdata.csv');
 
 
