@@ -24,6 +24,7 @@ print "1 - Français". PHP_EOL;
 print "2 - English". PHP_EOL;
 print "3 - Español". PHP_EOL;
 $langue= readline ("Votre choix: ");
+// two switches are needed. First one sends you to MainMenu to get the chosen language, then comes back to the second one to send you to the actual main menu.
 switch ($langue)
  {
     case "1":
