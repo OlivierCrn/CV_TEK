@@ -74,17 +74,9 @@ $traduction["ADD17"]= " Compétences (de 5 minimum à 10 maximum): ";
 $traduction["ADD18"]= " Il y a moins de 5 compétences. Merci de rentrer 5 compétences MINIMUM.";
 $traduction["ADD19"]= " Voulez-vous afficher le CV d'une personne recherchée Y/n? ";
 $traduction["ADD20"]= " ID de la personne dont vous souhaitez afficher le CV";
-$traduction["ADD21"]= " Format du CV non pris en charge"
-/*$traduction["ADD20"]=
-$traduction["ADD21"]=
-$traduction["ADD22"]=
-$traduction["ADD23"]=
-$traduction["ADD24"]=
-$traduction["ADD25"]=
-$traduction["ADD27"]=
-$traduction["ADD28"]=
-$traduction["ADD29"]=
-$traduction["ADD30"]=*/
+$traduction["ADD21"]= " Format du CV non pris en charge";
+$traduction["ADD22"]= "Voulez vous ouvrir le/les site(s) web du candidat? Y or NO?  ";
+$traduction["ADD23"]= " VOUS ÊTES BIEN JEUNE OU ALORS C'EST UNE ERREUR - ENTREE ERONNEE ";
 ?>
 
 
