@@ -4,7 +4,7 @@ require_once('list.php');
 require_once('search.php');
 require_once('add.php');
 require_once('modification.php');
-require_once('Translation'.$default_language);
+require_once('translation'.$default_language);
 
 //Start
 //General menu:
