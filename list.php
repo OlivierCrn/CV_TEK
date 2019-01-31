@@ -2,6 +2,7 @@
 // Candidates list's menu
 function li($candidats, $traduction)
 {
+$nul = "NULL";
 print $traduction["LIST1"]. PHP_EOL;
 print PHP_EOL;
 foreach($candidats as $key => $informations) 
