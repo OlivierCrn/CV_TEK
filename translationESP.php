@@ -77,7 +77,7 @@ $traduction["ADD22"]= "¿ Quiere abrir el/los sitio(s) web del candidato ? Y/N (
 $traduction["ADD23"]= " ES MUY JOVEN O QUIZÁS ES UN ERROR - ENTRADA ERRÓNEA ";
 $traduction["ADD24"]= "Este candidato ya existe , está seguro quiere añadir le ? Y/N (Si/No)";
 $traduction["ADD25"]= "Está bien, adelante!";
-
+$traduction["ADD26"]= "Mauvaise saisie. Y or N ?  "
 ?>
 
 
