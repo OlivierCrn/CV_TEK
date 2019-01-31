@@ -21,7 +21,7 @@ $traduction["MAIN_MENU5"]= "4 - Búsqueda  ";
 $traduction["MAIN_MENU6"]= "5 - Salida ";
 $traduction["MENU_CHOICE"]= "Su elección: ";
 $traduction["MAIN_MENU_DEFAULT"]= "Escoger un número entre 1 y 5";
-$traduction["MENU_QUIT1"]= "¿ Está seguro quiere salir el programa ? Y/N ";
+$traduction["MENU_QUIT1"]= "¿ Está seguro quiere salir el programa ? Y/N (Si/No) ";
 $traduction["MENU_QUIT2"]= "Está saliendo el programa, adiós.";
 $traduction["LIST1"]= "Lista de candidatos: ";
 $traduction["LIST2"]= "¿ Cómo quiere ordenar la lista ?";
@@ -70,12 +70,12 @@ $traduction["ADD14"]= " ESTA INFORMACIÓN ES OBLIGATORIA PARA EL AÑADIDO DE TOD
 $traduction["ADD15"]= " ESTE NÚMERO NO ES VALIDÓ.";
 $traduction["ADD16"]= " ESTE CORREO ELECTRÓNICO NO ES VALIDÓ.";
 $traduction["ADD17"]= " Hay menos de 5 competencias. Por favor, entra 5 competencias al MÍNIMO.";
-$traduction["ADD19"]= " ¿ Quiere mostrar el CV de una persona buscada Y/n ? ";
+$traduction["ADD19"]= " ¿ Quiere mostrar el CV de una persona buscada Y/N (Si/No) ";
 $traduction["ADD20"]= " ID de la persona de la cual quiere mostrar el CV: ";
 $traduction["ADD21"]= " Formato del CV no soportado";
-$traduction["ADD22"]= "¿ Quiere abrir el/los sitio(s) web del candidato ? Y/NO ?  ";
+$traduction["ADD22"]= "¿ Quiere abrir el/los sitio(s) web del candidato ? Y/N (Si/No) ";
 $traduction["ADD23"]= " ES MUY JOVEN O QUIZÁS ES UN ERROR - ENTRADA ERRÓNEA ";
-$traduction["ADD24"]= "Este candidato ya existe , está seguro quiere añadir le ? Y/N?";
+$traduction["ADD24"]= "Este candidato ya existe , está seguro quiere añadir le ? Y/N (Si/No)";
 $traduction["ADD25"]= "Está bien, adelante!";
 
 ?>
