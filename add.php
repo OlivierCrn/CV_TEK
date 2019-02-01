@@ -22,22 +22,22 @@ print ($traduction["ADD12"]) .PHP_EOL;
 print PHP_EOL;
 
 /* Filling up informations for a new candidate */
-$informations["LASTNAME"]=readline($traduction["SEARCH1"]);
+$informations["LASTNAME"]=cleanInput(readline($traduction["SEARCH1"]));
 while (empty($informations["LASTNAME"]))
 {
 	/*MANDATORY INFORMATION*/
 	print ($traduction["ADD14"]). PHP_EOL;
-	$informations["LASTNAME"]=readline($traduction["SEARCH1"]);
+	$informations["LASTNAME"]=cleanInput(readline($traduction["SEARCH1"]));
 }	
 
-$informations["FIRSTNAME"]=readline($traduction["ADD1"]);
+$informations["FIRSTNAME"]=cleanInput(readline($traduction["ADD1"]));
 while (empty($informations["FIRSTNAME"]))
 {
 	/*MANDATORY INFORMATION*/
 	print ($traduction["ADD14"]). PHP_EOL;
-	$informations["FIRSTNAME"]=readline($traduction["ADD1"]);
+	$informations["FIRSTNAME"]=cleanInput(readline($traduction["ADD1"]));
 }
-$informations["BIRTHDATE"]=readline($traduction["ADD13"]);
+$informations["BIRTHDATE"]=cleanInput(readline($traduction["ADD13"]));
 /* Verification for Birthdate, valid format entry and date entry */
 $DOB = $informations["BIRTHDATE"];
 $today = date("d-m-Y");
@@ -83,12 +83,12 @@ for($i = 1; $i < count($candidats); $i++)
 }
 
 nextstep:
-$informations["ADRESS1"]=readline($traduction["ADD3"]);
-$informations["ADRESS2"]= readline($traduction["ADD4"]);
-$informations["POSTCODE"]= readline($traduction["ADD5"]);
-$informations["TOWN"]= readline($traduction["ADD6"]);
-$informations["PHONE"]=readline($traduction["ADD7"]);
-$informations["MOBILE"]=readline ($traduction["ADD8"]);
+$informations["ADRESS1"]=cleanInput(readline($traduction["ADD3"]));
+$informations["ADRESS2"]= cleanInput(readline($traduction["ADD4"]));
+$informations["POSTCODE"]= cleanInput(readline($traduction["ADD5"]));
+$informations["TOWN"]= cleanInput(readline($traduction["ADD6"]));
+$informations["PHONE"]=cleanInput(readline($traduction["ADD7"]));
+$informations["MOBILE"]=cleanInput(readline ($traduction["ADD8"]));
 /* Verification for Mobile phone number, valid format entry */
 /*while(!preg_match ("#^07[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"]) && !preg_match ("#^0044[-. ]?7[57-9][-. ]?\d{2}([-. ]?\d{3}){2}$#",$informations["MOBILE"])) => version anglaise*/
 while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !preg_match("#^0033[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]))
@@ -105,28 +105,28 @@ while(!preg_match ("#^0[6,7]([-. ]?\d{2}){4}$#",$informations["MOBILE"]) && !pre
 		$informations["MOBILE"]=readline ($traduction["ADD8"]);
 		}
 	}
-$informations["MAIL"]= readline($traduction["ADD9"]);
+$informations["MAIL"]= cleanInput(readline($traduction["ADD9"]));
 /* Verification for Mail adress, valid format entry */
-while(!preg_match ("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#",$informations["MAIL"]))
+while(!preg_match ("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-zA-Z]{2,4}$#",$informations["MAIL"]))
 	{
 	if (empty($informations["MAIL"]))
 		{
 		/*MANDATORY INFORMATION*/
 		print ($traduction["ADD14"]). PHP_EOL;
-		$informations["MAIL"]= readline($traduction["ADD9"]);
+		$informations["MAIL"]= cleanInput(readline($traduction["ADD9"]));
 		}
 		else
 		{		
 		print ($traduction["ADD16"]). PHP_EOL;
-		$informations["MAIL"]=readline ($traduction["ADD9"]);
+		$informations["MAIL"]=cleanInput(readline ($traduction["ADD9"]));
 		}
 	}	
-$informations["PROFILE"]=readline ($traduction["ADD10"]);
+$informations["PROFILE"]=cleanInput(readline ($traduction["ADD10"]));
 while (empty($informations["PROFILE"]))
 {
 	/*MANDATORY INFORMATION*/
 	print ($traduction["ADD14"]). PHP_EOL;
-	$informations["PROFILE"]=readline ($traduction["ADD10"]);
+	$informations["PROFILE"]=cleanInput(readline ($traduction["ADD10"]));
 }	
 print($traduction["ADD11"]) .PHP_EOL;
 for($i=0; $i < 10; $i++)
@@ -134,21 +134,21 @@ for($i=0; $i < 10; $i++)
     $buffer="";
      $NumComp = $i+1;
     print($traduction["SKILLS_COUNT"].$NumComp) .PHP_EOL;
-    $buffer = readline();
+    cleanInput($buffer = readline());
         if($i < 5 && empty($buffer))
         {
             while(empty($buffer))
             {
 				/*MANDATORY INFORMATION, 5 min.*/
                 print($traduction["ADD17"]) .PHP_EOL;
-                $buffer = readline();
+                $buffer = cleanInput(readline());
             }
         }
         if($i > 5 && empty($buffer))
         {
         break;
         }
-    $Skills[$i] = $buffer;
+		$Skills[$i] = $buffer;
 }
 $informations["SKILLS"]=$Skills;
 stop:
