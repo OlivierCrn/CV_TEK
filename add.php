@@ -55,13 +55,13 @@ while (!preg_match("#^(0?[1-9]|[1-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0
 /* preg_match is checking if the input fulfils the required conditions and sends back 1 if it's a match, 0 if it's not a match,
  or FALSE if there's a mistake. It's followed by an "expression régulière" that applies the condition. This expression is
   framed by "^" at the beginning and "$" at the end because we want a define number of caracters. Every parenthesis represents a 
-  define group of caractere and contains the different accepted forms . For exemple, "(0?[1-9]|[0-2][0-9]|3[0-1])" 
+  define group of caracters and contains the different accepted forms . For exemple, "(0?[1-9]|[0-2][0-9]|3[0-1])" 
   represents the day of birth inside the date; every possibility is separeted by "|". The first one 0?[1-9] represents
    the days from  1 to 9 that we would usually write 05/../.... for ex, here we specify that the zero preceding the 
    digit is optional with "?" (some people write the digit directly, without zero), and then there can be a digit from 
    1 to 9. The second part [1-2][0-9] corresponds to dates going from 10 to 29 (the first digit is between 1 and 2,
    and the second digit between 0 and 9). The third part 3[0-1] corresponds to the dates 30 and 31 (the first digit
-   mu
+   must be a 3 followed only by a zero or a 1).
  */ 	
         {
 		if (empty($informations["BIRTHDATE"]))
