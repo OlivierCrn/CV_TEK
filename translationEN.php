@@ -78,6 +78,7 @@ $traduction["ADD23"]= " YOU'RE RATHER YOUNG OR IT MIGHT BE A TYPO. TRY AGAIN";
 $traduction["ADD24"]= "This candidate already exists. Would you still like to proceed? Y / N  ";
 $traduction["ADD25"]= "Ok, go for it!";
 $traduction["ADD26"]= "WRONG KEY. Y / N ?  "
+$traduction["ADD27"]= "Website :";
 ?>
 
 
