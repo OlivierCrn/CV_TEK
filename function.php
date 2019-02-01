@@ -21,7 +21,7 @@ function cleanInput($str) {
 	return $str;
 }
 // FUNCTION FOR THE CANDIDATES DISPLAY WHETHER STANDARD OR SORTED (THE SEARCH FUNCTION DOES NOT CALL ON THIS FUNCTION)
-function affichage($candidats)
+function affichage($candidats, $traduction)
 {
     print PHP_EOL;
     print PHP_EOL;
@@ -119,7 +119,7 @@ function age ($DOB)
 }
 
 
-function write ($candidats)
+function write ($candidats, $traduction)
 {
     $temp = "";
     $delimiter = ";";
