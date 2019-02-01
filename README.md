@@ -9,6 +9,6 @@ CV_TEK is a PHP based program that lets you read, write, add modify candidates (
 
 Marie [pafftek](https://github.com/pafftek)
 
-Olivier Carron [OlivierCrn](https://github.com/OlivierCrn)
+Olivier Caron [OlivierCrn](https://github.com/OlivierCrn)
 
 Cecile Campagne [noethix](https://github.com/noethix)
