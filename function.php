@@ -241,4 +241,19 @@ function open_cv($candidats, $traduction)
             exec('"C:/Program Files (x86)/Mozilla Firefox/firefox.exe" "'.$candidats[$cv]["WEBSITE"] .'"');
         }
 }
+
+function fullcheckdate($DOB)
+{
+    $day = substr($DOB, 0, 2);
+    $day = intval($day);
+    $month = substr($DOB, 3, 2);
+    $month = intval($month);
+    $year = substr($DOB, 6, 4);
+    $year = intval($year);
+    if($year < 1920)
+    {
+        $year = -12.3;
+    }
+    return checkdate($month, $day, $year);
+}
 ?>
