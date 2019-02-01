@@ -50,7 +50,7 @@ function affichage($candidats)
         print PHP_EOL;
     }
 }
-//--FUNCTION THAT EXTRACT THE CVS FILE
+//--FUNCTION THAT EXTRACT THE CSV FILE
 function csv_to_array($filename='hrdata.csv', $delimiter=';')
 {
     $nul= "NULL";
