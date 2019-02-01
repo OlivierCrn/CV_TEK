@@ -1,5 +1,5 @@
 <?php
-
+// This file manages the search function
 function LastName($candidats, $traduction) // Function which will search candidats depending of their name. 
 {
     $validation = FALSE;
