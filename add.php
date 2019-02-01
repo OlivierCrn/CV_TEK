@@ -22,6 +22,15 @@ print ($traduction["ADD12"]) .PHP_EOL;
 print PHP_EOL;
 
 /* Filling up informations for a new candidate */
+$max = 0; // Will be the higher ID 
+for($i = 0; $i < count($candidats)-1; $i++)
+{
+	if($candidats[$i]["ID"] < $candidats[$i+1]["ID"])
+		{
+			$max = $candidats[$i+1]["ID"];
+		}
+}
+$informations["ID"] = $max+1;
 $informations["LASTNAME"]=cleanInput(readline($traduction["SEARCH1"]));
 while (empty($informations["LASTNAME"]))
 {
@@ -151,6 +160,7 @@ for($i=0; $i < 10; $i++)
 		$Skills[$i] = $buffer;
 }
 $informations["SKILLS"]=$Skills;
+$informations["WEBSITE"]=cleanInput(readline ($traduction["ADD27"]));
 stop:
 $candidats[]= $informations ;
 return($candidats);
