@@ -1,5 +1,5 @@
 <?php
-
+// This function manages the add fonction
 function add($candidats , $traduction)
 
 /* Display */
