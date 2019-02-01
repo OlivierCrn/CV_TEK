@@ -1,4 +1,5 @@
 <?php
+//
 // Candidates list's menu
 function li($candidats, $traduction)
 {
