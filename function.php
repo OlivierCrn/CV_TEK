@@ -21,7 +21,7 @@ function cleanInput($str) {
 	return $str;
 }
 // FUNCTION FOR THE CANDIDATES DISPLAY WHETHER STANDARD OR SORTED (THE SEARCH FUNCTION DOES NOT CALL ON THIS FUNCTION)
-function affichage($candidats, $traduction)
+function affichage($candidats)
 {
     print PHP_EOL;
     print PHP_EOL;
@@ -105,7 +105,7 @@ function csv_to_array($filename='hrdata.csv', $delimiter=';')
         }
         fclose($handle);    
     } 
-    
+    print_r($candidats);
     return $candidats;
 }
 //--FUNCTION THAT CALCULATES THE AGE BASED ON THE BIRTHDATE INPUT
@@ -119,7 +119,7 @@ function age ($DOB)
 }
 
 
-function write ($candidats, $traduction)
+function write ($candidats)
 {
     $temp = "";
     $delimiter = ";";
@@ -144,9 +144,9 @@ function write ($candidats, $traduction)
     $headers[]="PHONE";
     $headers[]="MAIL";
     $headers[]="PROFILE";
-    for($i = 2; $i < 11 ; $i++ )
+    for($i = 0; $i < 10 ; $i++ )
         {
-        $headers[11+$i]="SKILLS ".$i;
+        $headers[13+$i]="SKILLS ".$i;
         }
     $headers[] = "WEBSITE";
     fputcsv($handle , $headers , $delimiter);
@@ -156,7 +156,13 @@ function write ($candidats, $traduction)
     foreach($candidats as $key => $value)
     {  
 	    // The program checks if it's the first line to insert keys.
-        
+        foreach($value as $key1 => $value1)
+            {
+                if(empty($value1))
+                    {
+                        $value[$key1] = "NULL";
+                    }
+            }
         $temp=array();
         $temp["ID"]= $value["ID"];
         $temp["LASTNAME"] = $value["LASTNAME"];
