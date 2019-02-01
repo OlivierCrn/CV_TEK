@@ -51,9 +51,9 @@ $informations["BIRTHDATE"]=cleanInput(readline($traduction["ADD13"]));
 /* Verification for Birthdate, valid format entry and date entry */
 $DOB = $informations["BIRTHDATE"];
 $today = date("d-m-Y");
-while (!preg_match("#^(0?[1-9]|[1-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0-2])[[\/.-_ ](19[0-9][0-9]|[2-9]\d{3})$#", $informations["BIRTHDATE"]) || strtotime($DOB) >= strtotime($today))
-/* preg_match is checking if the input fulfils the required conditions and sends back 1 if it's a match, 0 if it's not a match,
- or FALSE if there's a mistake. It's followed by an "expression régulière" that applies the condition. This expression is
+/*while (!preg_match("#^(0?[1-9]|[1-2][0-9]|3[0-1])[\/.-_ ](0?[1-9]|[0][1-9]|[1][0-2])[[\/.-_ ](19[0-9][0-9]|[2-9]\d{3})$#", $informations["BIRTHDATE"]) || strtotime($DOB) >= strtotime($today))
+ preg_match is checking if the input fulfils the required conditions and sends back 1 if it's a match, 0 if it's not a match,
+ or FALSE if there's a mistake. It's followed by an regular expression that applies the condition. This expression is
   framed by "^" at the beginning and "$" at the end because we want a define number of caracters. Every parenthesis represents a 
   define group of caracters and contains the different accepted forms . For exemple, "(0?[1-9]|[0-2][0-9]|3[0-1])" 
   represents the day of birth inside the date; every possibility is separeted by "|". The first one 0?[1-9] represents
